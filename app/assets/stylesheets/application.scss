@@ -11,12 +11,19 @@ nav {
   height: 12vh;
 }
 
+.nav-wrapper {
+    transition: 0.2s all linear;
+}
+
+.nav-wrapper.alt-color {
+    background-color: #000;
+}
+
 /* hamburger menu icon */
 nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
   font-size: 40px;
   margin-top: 1.8vh;
 }
-
 
 /* Home Page First Section */
 .background-image {
