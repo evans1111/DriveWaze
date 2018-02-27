@@ -33,6 +33,7 @@ gem 'materialize-sass'
 gem 'jquery-rails'
 
 gem 'devise', '~> 4.2'
+gem 'rails-erd'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
