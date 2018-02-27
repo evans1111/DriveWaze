@@ -8,6 +8,13 @@ html, body {
 /* Navigation */
 nav {
   background-color: rgba(0,0,0,0.45);
+  height: 12vh;
+}
+
+/* hamburger menu icon */
+nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
+  font-size: 40px;
+  margin-top: 1.8vh;
 }
 
 

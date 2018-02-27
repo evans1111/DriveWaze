@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180227182929) do
+ActiveRecord::Schema.define(version: 20180227215559) do
+
+  create_table "availabilities", force: :cascade do |t|
+    t.integer "times"
+    t.integer "spot_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["spot_id"], name: "index_availabilities_on_spot_id"
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.boolean "in_use"
+    t.integer "user_id"
+    t.integer "availability_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["availability_id"], name: "index_bookings_on_availability_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
 
   create_table "spots", force: :cascade do |t|
     t.integer "zip"
@@ -21,6 +39,8 @@ ActiveRecord::Schema.define(version: 20180227182929) do
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_spots_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
