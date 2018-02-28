@@ -29,8 +29,8 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
   <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAHC4cRXZ-6GDhkGb-feapfuFCkoVZ5n4&callback=initMap">
-  </script>
+    src="https://maps.googleapis.com/maps/api/js?key=<%="#{ENV["MAPS"]}"%>&callback=initMap">
+    </script>
 
   </head>
   <body>
