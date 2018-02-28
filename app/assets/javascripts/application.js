@@ -19,7 +19,7 @@
 //= require turbolinks
 //= require_tree .
 
-
+// Initialize Map
 function initMap() {
        var uluru = {lat: -25.363, lng: 131.044};
        var map = new google.maps.Map(document.getElementById('map'), {
@@ -31,11 +31,14 @@ function initMap() {
          map: map
        });
      }
-     
+//To place multiple Markers, loop through feed results. Since data is on same domain
+//use Google Maps data layer ex: map.data.loadGeoJson() method
+
+
 $(document).ready(function() {
    $(".button-collapse").sideNav();
    console.log("javaScript is working!");
-  //Initialize Map
+  
 
 });
 

@@ -81,6 +81,7 @@ GEM
       hurley (~> 0.1)
       multi_json (~> 1.11)
       retriable (~> 2.0)
+    hirb (0.7.3)
     httparty (0.16.0)
       multi_xml (>= 0.5.2)
     hurley (0.2)
@@ -117,7 +118,7 @@ GEM
     public_suffix (3.0.2)
     puma (3.11.2)
     rack (2.0.4)
-    rack-test (0.8.2)
+    rack-test (0.8.3)
       rack (>= 1.0, < 3)
     rails (5.1.5)
       actioncable (= 5.1.5)
@@ -218,6 +219,7 @@ DEPENDENCIES
   devise (~> 4.2)
   figaro
   google_maps_service
+  hirb
   httparty
   jbuilder (~> 2.5)
   jquery-rails
