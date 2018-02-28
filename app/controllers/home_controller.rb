@@ -3,7 +3,7 @@ class HomeController < ApplicationController
 
   def index
     GoogleMapsService.configure do |config|
-  config.key = 'AIzaSyBBPKKk-ycpViBGGkNbA43DXhtUXcLsrGY'
+  config.key = ENV["MAPS"]
   config.retry_timeout = 20
   config.queries_per_second = 10
   gmaps = GoogleMapsService::Client.new
