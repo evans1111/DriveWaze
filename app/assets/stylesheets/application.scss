@@ -144,6 +144,26 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
 }
 /* End Testimonial section */
 
+/* Home Page Map Section */
+.map-section {
+  height: 800px;
+  width: 100%;
+  text-align: center;
+}
+#map-section-headline {
+  margin-top: 5rem;
+}
+#map-section-subheadline {
+  font-size: 18px;
+  color: #787878;
+}
+#gmap-home {
+  margin: 1rem 0rem;
+}
+
+
+/* End Home Page Map Section */
+
 /* Login page */
 .login-form {
   margin-top: 3rem;
