@@ -1,0 +1,16 @@
+<!-- <h1>Spot#index</h1> -->
+<%= render "menubar" %>
+<div class="container">
+
+  <h1>Available Parking</h1>
+
+  <div class="create-spot">
+    <% @spots.each do |x| %>
+      <li><%= x.street %></li>
+      <li><%= x.city %></li>
+      <li><%= x.zip %></li>
+      <li><%= x.description %></li>
+      <li>Price: $<%= x.price %>.00/hr</li>
+    <% end %>
+  </div>
+</div>

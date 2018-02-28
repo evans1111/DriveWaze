@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180228005641) do
+ActiveRecord::Schema.define(version: 20180228014352) do
 
   create_table "availabilities", force: :cascade do |t|
     t.integer "times"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20180228005641) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.integer "price"
     t.index ["user_id"], name: "index_spots_on_user_id"
   end
 

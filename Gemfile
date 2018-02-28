@@ -35,6 +35,8 @@ gem 'jquery-rails'
 gem 'devise', '~> 4.2'
 gem 'rails-erd'
 
+gem 'hirb'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
