@@ -20,11 +20,25 @@
 //= require_tree .
 
 
-
 $(document).ready(function() {
    $(".button-collapse").sideNav();
    console.log("javaScript is working!");
 
   
 
+});
+
+// scrolling effect
+
+jQuery(document).ready(function($) {
+  $(window).scroll(function() {
+    var scrollPos = $(window).scrollTop(),
+        navbar = $('.nav-wrapper');
+
+    if (scrollPos > 580) {
+      navbar.addClass('alt-color');
+    } else {
+      navbar.removeClass('alt-color');
+    }
+  });
 });
