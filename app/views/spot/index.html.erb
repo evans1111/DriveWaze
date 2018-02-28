@@ -2,7 +2,7 @@
 <%= render "menubar" %>
 <div class="container">
   <h4>Available Parking</h4>
-    <%= @spots.each do |spot| %>
+    <% @spots.each do |spot| %>
       <div class="card">
         <div class="card-image">
           <%= image_tag(spot.image) %>
