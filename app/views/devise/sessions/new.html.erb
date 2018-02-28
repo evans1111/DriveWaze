@@ -1,5 +1,7 @@
 <%= render "menubar" %>
 <div class="container">
+  <div class="login-form">
+
   <h2>Log in</h2>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -20,11 +22,11 @@
       </div>
     <% end -%>
 
-    <div class="actions">
+    <div class="actions waves-effect btn #ef6c00 orange darken-3">
       <%= f.submit "Log in" %>
     </div>
   <% end %>
 
   <%= render "devise/shared/links" %>
-
+  </div>
 </div>
