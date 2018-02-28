@@ -1,16 +1,23 @@
 <!-- <h1>Spot#index</h1> -->
 <%= render "menubar" %>
 <div class="container">
-
-  <h1>Available Parking</h1>
-
-  <div class="create-spot">
-    <% @spots.each do |x| %>
-      <li><%= x.street %></li>
-      <li><%= x.city %></li>
-      <li><%= x.zip %></li>
-      <li><%= x.description %></li>
-      <li>Price: $<%= x.price %>.00/hr</li>
+  <h4>Available Parking</h4>
+    <%= @spots.each do |spot| %>
+      <div class="card">
+        <div class="card-image">
+          <%= image_tag(spot.image) %>
+          <span class="card-title"><%#= Text over spot image %></span>
+        </div>
+        <div class="card-content">
+          <h4><%= spot.street %></h4>
+          <p><%= spot.description %></p>
+          <p><%= spot.city %></p>
+          <p><%= spot.zip %></p>
+          <p>$<%= spot.price %>.00/hr</p>
+        </div>
+        <div class="card-action">
+          <a href="#" class="waves-effect btn #ef6c00 orange darken-3">Park Here</a>
+        </div>
+      </div>
     <% end %>
-  </div>
 </div>

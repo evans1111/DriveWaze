@@ -3,9 +3,9 @@ class SpotController < ApplicationController
   before_action :authenticate_user!, except: [:show]
 
   def index
-    # shows current user spots
-    # @spots = current_user.spots
-    @spots = Spot.all
+    # shows current user spots -- @spots = current_user.spots
+    @spots = Spot.all # shows all user spots
+
   end
 
   def new

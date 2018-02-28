@@ -36,6 +36,7 @@ gem 'devise', '~> 4.2'
 gem 'rails-erd'
 
 gem 'hirb'
+gem 'google_maps_service'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
