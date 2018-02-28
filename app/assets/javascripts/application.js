@@ -19,9 +19,40 @@
 //= require turbolinks
 //= require_tree .
 
+// Initialize Map
+function initMap() {
+       var uluru = {lat: -25.363, lng: 131.044};
+       var map = new google.maps.Map(document.getElementById('map'), {
+         zoom: 4,
+         center: uluru
+       });
+       var marker = new google.maps.Marker({
+         position: uluru,
+         map: map
+       });
+     }
+//To place multiple Markers, loop through feed results. Since data is on same domain
+//use Google Maps data layer ex: map.data.loadGeoJson() method
 
 
 $(document).ready(function() {
    $(".button-collapse").sideNav();
    console.log("javaScript is working!");
+  
+
+});
+
+// scrolling effect
+
+jQuery(document).ready(function($) {
+  $(window).scroll(function() {
+    var scrollPos = $(window).scrollTop(),
+        navbar = $('.nav-wrapper');
+
+    if (scrollPos > 580) {
+      navbar.addClass('alt-color');
+    } else {
+      navbar.removeClass('alt-color');
+    }
+  });
 });

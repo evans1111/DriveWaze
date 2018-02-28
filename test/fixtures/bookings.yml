@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  in_use: false
+  user: one
+  availability: one
+
+two:
+  in_use: false
+  user: two
+  availability: two
