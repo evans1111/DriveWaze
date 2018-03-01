@@ -1,3 +1,6 @@
+<script type="text/javascript">
+  initMap()
+</script>
 <%= render "menubar" %>
 <%= current_user.email %>
 <%= current_user.name %>
@@ -9,7 +12,7 @@
     <%= submit_tag 'Search', class: "btn #42a5f5 blue lighten-1", id: "search-button" %>
   <% end %>
 
-      <div class="card">
+      <div class="card" id="map-card">
         <div class="card-image">
 
           <span class="card-title"><%#= Text over spot image %></span>
