@@ -1,3 +1,6 @@
+<script type="text/javascript">
+  initMap()
+</script>
 <%= render "menubar" %>
 
 <div class="container">
@@ -11,23 +14,25 @@
     <% end %>
   </div>
 
-    <% @spot.each_with_index do |spot, i| %>
-      <div class="card">
-        <div class="card-image">
-          <div class= "gmap" id="map<%= i %>"></div>
-        </div>
-        <div class="card-content">
-          <h4><%= spot.street %></h4>
-          <p class="spot-info">Description: <%= spot.description %></p>
-          <p class="spot-info">City: <%= spot.city %></p>
-          <p class="spot-info">Zip: <%= spot.zip %></p>
-          <p class="spot-info">$<%= spot.price %>.00/hr</p>
+    <% unless @spots.nil? %>
+      <% @spots.each_with_index do |spot, i| %>
+        <div class="card">
+          <div class="card-image">
+            <div class= "gmap" id="map<%= i %>"></div>
+          </div>
+          <div class="card-content">
+            <h4><%= spot.street %></h4>
+            <p class="spot-info">Description: <%= spot.description %></p>
+            <p class="spot-info">City: <%= spot.city %></p>
+            <p class="spot-info">Zip: <%= spot.zip %></p>
+            <p class="spot-info">$<%= spot.price %>.00/hr</p>
 
+          </div>
+          <div class="card-action">
+            <a href="#" class="waves-effect btn #ef6c00 orange darken-3">Park Here</a>
+          </div>
         </div>
-        <div class="card-action">
-          <a href="#" class="waves-effect btn #ef6c00 orange darken-3">Park Here</a>
-        </div>
-      </div>
+      <% end  %>
     <% end  %>
 
 </div>
