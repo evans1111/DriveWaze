@@ -1,23 +1,35 @@
-<!-- <h1>Spot#index</h1> -->
 <%= render "menubar" %>
+
 <div class="container">
-  <h4>Available Parking</h4>
-    <%= @spots.each do |spot| %>
+  <div class="mobile-header-section">
+    <h4 class="page-header">Available Parking</h4>
+    <p class="page-subheader">Select a place to park or search by zipcode.</p>
+
+    <%= form_tag(spot_index_path, method: :get) do %>
+      <%= text_field_tag :zip, nil, placeholder: "Search Zip Codes", :maxlength => 5 %>
+      <%= submit_tag 'Search', class: "btn #42a5f5 blue lighten-1", id: "search-button" %>
+    <% end %>
+  </div>
+
+    <% @spot.each_with_index do |spot, i| %>
       <div class="card">
         <div class="card-image">
-          <%= image_tag(spot.image) %>
-          <span class="card-title"><%#= Text over spot image %></span>
+          <div class= "gmap" id="map<%= i %>"></div>
         </div>
         <div class="card-content">
           <h4><%= spot.street %></h4>
-          <p><%= spot.description %></p>
-          <p><%= spot.city %></p>
-          <p><%= spot.zip %></p>
-          <p>$<%= spot.price %>.00/hr</p>
+          <p class="spot-info">Description: <%= spot.description %></p>
+          <p class="spot-info">City: <%= spot.city %></p>
+          <p class="spot-info">Zip: <%= spot.zip %></p>
+          <p class="spot-info">$<%= spot.price %>.00/hr</p>
+
         </div>
         <div class="card-action">
           <a href="#" class="waves-effect btn #ef6c00 orange darken-3">Park Here</a>
         </div>
       </div>
-    <% end %>
+    <% end  %>
+
 </div>
+
+<%= paginate @spots %>

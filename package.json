@@ -1,5 +1,7 @@
 {
   "name": "drive_waze",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
 }
