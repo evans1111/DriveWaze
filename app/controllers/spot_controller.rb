@@ -2,6 +2,7 @@ class SpotController < ApplicationController
   before_action :set_spot, except: [:index, :new, :create]
   before_action :authenticate_user!, except: [:show]
 
+
   def index
     # shows current user spots -- @spots = current_user.spots
     @spot = Spot.first(2)
@@ -28,6 +29,12 @@ class SpotController < ApplicationController
 
     end
 
+    @spots = if params[:zip]
+      Spot.where('zip LIKE ?', "%#{params[:zip]}%")
+    else
+      Spot.all
+    end
+    @spots = @spots.page(params[:spot])
   end
 
   def new
@@ -61,6 +68,9 @@ class SpotController < ApplicationController
   def location
   end
 
+  def search
+  end
+
   def update
     if @spot.update(spot_params)
       flash[:notice] = "Saved..."
@@ -77,6 +87,6 @@ class SpotController < ApplicationController
   end
 
   def spot_params
-    params.require(:spot).permit(:zip, :city, :street, :description, :price, :image)
+    params.require(:spot).permit(:zip, :city, :street, :description, :price, :image,)
   end
 end
