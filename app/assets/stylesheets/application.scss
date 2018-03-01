@@ -186,6 +186,21 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
   font-size: 20px;
   color: #787878;
 }
+input#zip {
+  width: 50%;
+  border: 1px solid #9e9e9e;
+  border-radius: 20px;
+  height: 48px;
+  font-size: 22px;
+  box-shadow: none;
+  padding: 0rem 1rem;
+}
+#search-button {
+  border-radius: 20px;
+  height: 44px;
+  margin-bottom: 1vh;
+}
+
 
 /* Pagination */
 .pagination {
