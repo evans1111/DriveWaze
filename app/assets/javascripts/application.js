@@ -21,16 +21,20 @@
 
 // Initialize Map
 function initMap() {
-       var uluru = {lat: -25.363, lng: 131.044};
-       var map = new google.maps.Map(document.getElementById('map'), {
-         zoom: 4,
-         center: uluru
+      //gon.latlng
+      for (var i = 0; i < gon.latlng.length; i++) {
+       var test = {lat: gon.latlng[i][0], lng: gon.latlng[i][1]};
+
+       var map = new google.maps.Map(document.getElementById('map' + i), {
+         zoom: 12,
+         center: test
        });
        var marker = new google.maps.Marker({
-         position: uluru,
+         position: test,
          map: map
        });
      }
+   };
 //To place multiple Markers, loop through feed results. Since data is on same domain
 //use Google Maps data layer ex: map.data.loadGeoJson() method
 
@@ -38,7 +42,7 @@ function initMap() {
 $(document).ready(function() {
    $(".button-collapse").sideNav();
    console.log("javaScript is working!");
-  
+
 
 });
 

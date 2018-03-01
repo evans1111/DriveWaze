@@ -37,6 +37,7 @@ gem 'devise', '~> 4.2'
 gem 'rails-erd'
 gem 'figaro'
 gem 'hirb'
+gem 'gon'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
