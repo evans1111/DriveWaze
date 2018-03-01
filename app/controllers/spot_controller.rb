@@ -5,7 +5,6 @@ class SpotController < ApplicationController
 
   def index
     # shows current user spots -- @spots = current_user.spots
-    @spot = Spot.first(2)
 
     GoogleMapsService.configure do |config|
       config.key = ENV["MAPS"]
@@ -29,12 +28,15 @@ class SpotController < ApplicationController
     end
 
     #Search function for feed - search by zip code
-    @spots = if params[:zip]
-      Spot.where('zip LIKE ?', "%#{params[:zip]}%")
+
+    if not params[:zip].nil?
+      @spots = Spot.where('zip LIKE ?', params[:zip]).page(params[:spot])
+      # Spot.where('zip LIKE ?', "%#{params[:zip]}%")
     else
-      Spot.all
+      @spots = Spot.all.page(params[:spot])
     end
-    @spots = @spots.page(params[:spot])
+
+
   end
 
   def new
