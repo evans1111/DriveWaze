@@ -13,7 +13,6 @@ class SpotController < ApplicationController
       Spot.all
     end
     @spots = @spots.page(params[:spot])
-
   end
 
   def new
