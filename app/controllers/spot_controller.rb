@@ -5,7 +5,7 @@ class SpotController < ApplicationController
 
   def index
     # shows current user spots -- @spots = current_user.spots
-
+    
     GoogleMapsService.configure do |config|
       config.key = ENV["MAPS"]
       config.retry_timeout = 20
@@ -14,7 +14,7 @@ class SpotController < ApplicationController
 
       # query = [Spot.find(1).street, Spot.find(1).city, "FL"].join(', ')
       #Grabs first 2 spots. Eventually grab all spots and translating
-      spots = Spot.first(2)
+      spots = Spot.first(5)
 
       #map over all spots
       gon.latlng = spots.map do |spot|
