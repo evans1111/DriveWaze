@@ -1,0 +1,90 @@
+<!-- <h1>Dashboard#index</h1> -->
+<div class="dashbackground">
+
+<%= render "menubar" %>
+<!-- section 1 -->
+<div class="container">
+  <div class="dashsection1">
+    <h2>Dashboard</h2>
+    <div class="row">
+      <div class="col s12 m7">
+        <div class="card">
+          <div class="card-image">
+             <img src="user.png">
+           </div>
+          <div class="card-content">
+            <h5><%= current_user %></h5>
+            <p><%= current_user %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- section 2 -->
+
+<div class="dashsection2">
+  <div class="row">
+    <div class="col s12 m7">
+      <div class="card">
+        <div class="card-content">
+          <h5>PARKING SPOT INFO</h5>
+          <p> street </p>
+          <p> description </p>
+          <p> city </p>
+          <p> zip </p>
+          <p>$ price .00/hr</p>
+          <p>Total $ generated</p>
+        </div>
+      </div>
+      <div class="card-action">
+        <a href="#" class="waves-effect btn #ef6c00 orange darken-3">Add a spot</a>
+        <a href="#" class="waves-effect btn #ef6c00 orange darken-3">Edit your spot</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- section 3 -->
+
+  <div class="dashsection3">
+    <h5>Your bookings</h5>
+    <ul class="collection">
+      <li class="collection-item avatar">
+        <i class="material-icons circle">pin_drop</i>
+        <span class="title">Booking #1</span>
+        <p>Street name <br>
+          Price $
+        </p>
+        <a href="#!" class="secondary-content"><i class="material-icons">cancel</i></a>
+      </li>
+      <li class="collection-item avatar">
+        <i class="material-icons circle">pin_drop</i>
+        <span class="title">Booking #2</span>
+        <p>Street name <br>
+          Price $
+        </p>
+        <a href="#!" class="secondary-content"><i class="material-icons">done</i></a>
+      </li>
+      <li class="collection-item avatar">
+        <i class="material-icons circle">pin_drop</i>
+        <span class="title">Booking #3</span>
+        <p>Street name <br>
+          Price $
+        </p>
+        <a href="#!" class="secondary-content"><i class="material-icons">done</i></a>
+      </li>
+      <li class="collection-item avatar">
+        <i class="material-icons circle">pin_drop</i>
+        <span class="title">Booking #4</span>
+        <p>Street name <br>
+          Price $
+        </p>
+        <a href="#!" class="secondary-content"><i class="material-icons">done</i></a>
+      </li>
+    </ul>
+  </div>
+</div>
+  <!-- <div class="parkbutton">
+  <a id="parkbutton" class="waves-effect btn #ef6c00 orange darken-3">park now</a><br>
+</div> -->
