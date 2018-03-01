@@ -5,36 +5,38 @@ class SpotController < ApplicationController
 
   def index
     # shows current user spots -- @spots = current_user.spots
-    @spot = Spot.first(2)
 
     GoogleMapsService.configure do |config|
-  config.key = ENV["MAPS"]
-  config.retry_timeout = 20
-  config.queries_per_second = 10
-  gmaps = GoogleMapsService::Client.new
-  # query = [Spot.find(1).street, Spot.find(1).city, "FL"].join(', ')
-  #Grabs first 2 spots. Eventually grab all spots and translating
-  spots = Spot.first(2)
-  #map over all spots
-  gon.latlng = spots.map do |spot|
-    #creates query for gmaps
-    query = [spot.street, spot.city, "FL"].join(', ')
-    #translates to latitude/long
-    results = gmaps.geocode(query)
-    #parse data
+      config.key = ENV["MAPS"]
+      config.retry_timeout = 20
+      config.queries_per_second = 10
+      gmaps = GoogleMapsService::Client.new
 
-    results[0][:geometry][:location].values
+      # query = [Spot.find(1).street, Spot.find(1).city, "FL"].join(', ')
+      #Grabs first 2 spots. Eventually grab all spots and translating
+      spots = Spot.first(2)
+
+      #map over all spots
+      gon.latlng = spots.map do |spot|
+        #creates query for gmaps
+        query = [spot.street, spot.city, "FL"].join(', ')
+        #translates to latitude/long
+        results = gmaps.geocode(query)
+        #parse data
+        results[0][:geometry][:location].values
       end
-
-
     end
 
-    @spots = if params[:zip]
-      Spot.where('zip LIKE ?', "%#{params[:zip]}%")
+    #Search function for feed - search by zip code
+
+    if not params[:zip].nil?
+      @spots = Spot.where('zip LIKE ?', params[:zip]).page(params[:spot])
+      # Spot.where('zip LIKE ?', "%#{params[:zip]}%")
     else
-      Spot.all
+      @spots = Spot.all.page(params[:spot])
     end
-    @spots = @spots.page(params[:spot])
+
+
   end
 
   def new

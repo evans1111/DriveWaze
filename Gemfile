@@ -39,6 +39,7 @@ gem 'figaro'
 gem 'hirb'
 gem 'gon'
 gem 'kaminari'
+gem 'search_object'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

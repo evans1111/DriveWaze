@@ -2,38 +2,38 @@
   initMap()
 </script>
 <%= render "menubar" %>
-<%= current_user.email %>
-<%= current_user.name %>
+
 <div class="container">
-  <h4>Available Parking</h4>
+  <div class="mobile-header-section">
+    <h4 class="page-header">Available Parking</h4>
+    <p class="page-subheader">Select a place to park or search by zipcode.</p>
 
-  <%= form_tag(spot_index_path, method: :get) do %>
-    <%= text_field_tag :zip, nil, placeholder: "Search Zip Codes", :maxlength => 5 %>
-    <%= submit_tag 'Search', class: "btn #42a5f5 blue lighten-1", id: "search-button" %>
-  <% end %>
+    <%= form_tag(spot_index_path, method: :get) do %>
+      <%= text_field_tag :zip, nil, placeholder: "Search Zip Codes", :maxlength => 5 %>
+      <%= submit_tag 'Search', class: "btn #42a5f5 blue lighten-1", id: "search-button" %>
+    <% end %>
+  </div>
 
-      <div class="card" id="map-card">
-        <div class="card-image">
-
-          <span class="card-title"><%#= Text over spot image %></span>
-        </div>
-        <div class="card-content">
-          <% @spot.each_with_index do |spot, i| %>
-          <div class= "gmap" id="map<%= i %>">
+    <% unless @spots.nil? %>
+      <% @spots.each_with_index do |spot, i| %>
+        <div class="card">
+          <div class="card-image">
+            <div class= "gmap" id="map<%= i %>"></div>
+          </div>
+          <div class="card-content">
+            <h4><%= spot.street %></h4>
+            <p class="spot-info">Description: <%= spot.description %></p>
+            <p class="spot-info">City: <%= spot.city %></p>
+            <p class="spot-info">Zip: <%= spot.zip %></p>
+            <p class="spot-info">$<%= spot.price %>.00/hr</p>
 
           </div>
-          <h4><%= spot.street %></h4>
-          <p class="spot-info">Description: <%= spot.description %></p>
-          <p class="spot-info">City: <%= spot.city %></p>
-          <p class="spot-info">Zip: <%= spot.zip %></p>
-          <p class="spot-info">$<%= spot.price %>.00/hr</p>
-          <% end  %>
+          <div class="card-action">
+            <a href="#" class="waves-effect btn #ef6c00 orange darken-3">Park Here</a>
+          </div>
         </div>
-
-        <div class="card-action">
-          <a href="#" class="waves-effect btn #ef6c00 orange darken-3">Park Here</a>
-        </div>
-      </div>
+      <% end  %>
+    <% end  %>
 
 </div>
 
