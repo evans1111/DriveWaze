@@ -1,12 +1,15 @@
 <%= render "menubar" %>
 
 <div class="container">
-  <h4>Available Parking</h4>
+  <div class="mobile-header-section">
+    <h4 class="page-header">Available Parking</h4>
+    <p class="page-subheader">Select a place to park or search by zipcode.</p>
 
-  <%= form_tag(spot_index_path, method: :get) do %>
-    <%= text_field_tag :zip, nil, placeholder: "Search Zip Codes", :maxlength => 5 %>
-    <%= submit_tag 'Search', class: "btn #42a5f5 blue lighten-1", id: "search-button" %>
-  <% end %>
+    <%= form_tag(spot_index_path, method: :get) do %>
+      <%= text_field_tag :zip, nil, placeholder: "Search Zip Codes", :maxlength => 5 %>
+      <%= submit_tag 'Search', class: "btn #42a5f5 blue lighten-1", id: "search-button" %>
+    <% end %>
+  </div>
 
     <% @spot.each_with_index do |spot, i| %>
       <div class="card">
