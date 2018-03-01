@@ -4,6 +4,7 @@
 
 
 <div class="container">
+<<<<<<< HEAD
   <div class="mobile-header-section">
     <h4 class="page-header">Available Parking</h4>
     <p class="page-subheader">Select a place to park or search by zipcode.</p>
@@ -19,6 +20,25 @@
       <div class="card-image">
         <%#= image_tag(spot.image) %>
         <span class="card-title"><%#= Text over spot image %></span>
+=======
+  <h4>Available Parking</h4>
+    <% @spots.each do |spot| %>
+      <div class="card">
+        <div class="card-image">
+          <%= image_tag(spot.image) %>
+          <span class="card-title"><%#= Text over spot image %></span>
+        </div>
+        <div class="card-content">
+          <h4><%= spot.street %></h4>
+          <p><%= spot.description %></p>
+          <p><%= spot.city %></p>
+          <p><%= spot.zip %></p>
+          <p>$<%= spot.price %>.00/hr</p>
+        </div>
+        <div class="card-action">
+          <a href="#" class="waves-effect btn #ef6c00 orange darken-3">Park Here</a>
+        </div>
+>>>>>>> 4e95b59ec6d358a57cc0c10ab2881eb31c0295d1
       </div>
       <div class="card-content">
         <h4><%= spot.street %></h4>
