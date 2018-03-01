@@ -5,6 +5,15 @@ html, body {
   font-weight: 300;
   margin-top: -1vh;
 }
+/* General Page Styling Info */
+.page-subheader {
+  font-size: 20px;
+  color: #787878;
+}
+.mobile-header-section {
+  text-align: center;
+}
+
 /* Navigation */
 nav {
   background-color: rgba(0,0,0,0.45);
@@ -89,7 +98,7 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
 /* Home Page Section 3 (Testimonials) */
 .section3 {
   position: relative;
-  height: 1100px;
+  height: 925px;
   width: 100vw;
   background-color: #1B9CE5;
   color: #ffffff;
@@ -170,4 +179,20 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
 }
 #form-buttons {
   margin: 1rem 0rem;
+}
+
+/* Feed Page */
+.spot-info {
+  font-size: 20px;
+  color: #787878;
+}
+
+/* Pagination */
+.pagination {
+  text-align: center;
+  background-color: #1B9CE5;
+  padding-top: 1rem;
+}
+.page, .first, .prev, .next, .last {
+  font-size: 20px;
 }
