@@ -2,11 +2,13 @@ Rails.application.routes.draw do
 
 
 
+
   
   get 'dashboard/index' => 'dashboard#index'
 
   devise_for :users
   root 'home#index'
+  post 'spots/new' => 'spots#create'
 
   resources :users, only: [:show]
   resources :spots, except: [:edit] do
