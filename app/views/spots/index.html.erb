@@ -5,13 +5,13 @@
     <h4 class="page-header">Available Parking</h4>
     <p class="page-subheader">Select a place to park or search by zipcode.</p>
 
-    <%= form_tag(spot_index_path, method: :get) do %>
+    <%= form_tag(spots_path, method: :get) do %>
       <%= text_field_tag :zip, nil, placeholder: "Search Zip Codes", :maxlength => 5 %>
       <%= submit_tag 'Search', class: "btn #42a5f5 blue lighten-1", id: "search-button" %>
     <% end %>
   </div>
 
-    <% @spot.each_with_index do |spot, i| %>
+    <% @spots.each_with_index do |spot, i| %>
       <div class="card">
         <div class="card-image">
           <div class= "gmap" id="map<%= i %>"></div>
