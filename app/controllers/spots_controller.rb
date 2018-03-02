@@ -28,7 +28,6 @@ class SpotsController < ApplicationController
     end
 
     #Search function for feed - search by zip code
-
     if not params[:zip].nil?
       @spots = Spot.where('zip LIKE ?', params[:zip]).page(params[:spot])
       # Spot.where('zip LIKE ?', "%#{params[:zip]}%")
@@ -45,9 +44,11 @@ class SpotsController < ApplicationController
   def create
     @spot = current_user.spots.build(spot_params)
     if @spot.save
-      redirect_to listing_spot_path(@spot), notice: "Saved..."
-    else
-      render :new, notice: "Something went wrong..."
+      # redirect_to listing_spot_path(@spot), notice: "Saved..."
+      redirect_to dashboard_index_path , notice: "Your parking spot was created!"
+      return
+    # else
+    #   render :new, notice: "Something went wrong..."
     end
   end
 
@@ -56,7 +57,6 @@ class SpotsController < ApplicationController
 
   def show
     @spot = Spot.find(params[:id])
-
   end
 
   def pricing

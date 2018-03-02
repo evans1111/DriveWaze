@@ -1,26 +1,29 @@
 <%= render "menubar" %>
 <div class="container">
-  <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+  <%= form_with model: @spot, local: true do |form| %>
 
+    <div class="field">
+      <%= form.label :street %>
+      <%= form.text_field :street, id: :spot_street %>
+    </div>
 
+    <div class="field">
+      <%= form.label :zip %>
+      <%= form.text_field :zip, id: :spot_zip %>
+    </div>
 
-  <div class="field">
-    <%= form.label :zip %>
-    <%= form.text_field :zip, id: :spot_zip %>
-  </div>
+    <div class="field">
+      <%= form.label :city %>
+      <%= form.text_field :city, id: :spot_city %>
+    </div>
 
-  <div class="field">
-    <%= form.label :street %>
-    <%= form.text_field :street, id: :spot_street %>
-  </div>
-<!-- Add available times for spots on user dashboard -->
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description, id: :spot_description %>
-  </div>
+    <div class="field">
+      <%= form.label :description %>
+      <%= form.text_field :description, id: :spot_description %>
+    </div>
 
-  <div class="actions">
-    <%= form.submit "Submit", class: "waves-effect btn #ef6c00 orange darken-3" %>
-  </div>
-<% end %>
-  </div>
+    <div class="actions">
+      <%= form.submit "Submit", class: "waves-effect btn #ef6c00 orange darken-3" %>
+    </div>
+  <% end %>
+</div>

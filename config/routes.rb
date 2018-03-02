@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
 
 
 
@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   root 'home#index'
+  post 'spots/new' => 'spots#create'
 
   resources :users, only: [:show]
   resources :spots, except: [:edit] do
