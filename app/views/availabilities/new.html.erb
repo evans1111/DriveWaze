@@ -1,0 +1,11 @@
+<h1>Create Your Availabilities</h1>
+
+<%= form_for [@spot, @availability] do |f| %>
+<p>
+
+<%= f.label :available_times %>
+<%= f.text_field :times, class: 'timepicker' %>
+</p>
+
+<%= f.submit %>
+<% end  %>

@@ -27,19 +27,14 @@
     <%= form.label :street %>
     <%= form.text_field :street, id: :spot_street %>
   </div>
-
-  <div class="field">
-    <%= form.label :available %>
-    <%= form.text_field :available, id: :spot_available %>
-  </div>
-
+<!-- Add available times for spots on user dashboard -->
   <div class="field">
     <%= form.label :description %>
     <%= form.text_field :description, id: :spot_description %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Submit", class: "waves-effect btn #ef6c00 orange darken-3" %>
   </div>
 <% end %>
   </div>

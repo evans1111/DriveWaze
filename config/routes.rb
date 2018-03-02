@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
+  
+
+
 
   get 'dashboard/index' => 'dashboard#index'
 
   devise_for :users
   root 'home#index'
-  
+
   resources :users, only: [:show]
   resources :spots, except: [:edit] do
+    resources :availabilities
     member do
       get 'street'
       get 'city'

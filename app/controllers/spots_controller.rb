@@ -5,7 +5,7 @@ class SpotsController < ApplicationController
 
   def index
     # shows current user spots -- @spots = current_user.spots
-
+    @spot = Spot.all
     GoogleMapsService.configure do |config|
       config.key = ENV["MAPS"]
       config.retry_timeout = 20
@@ -43,6 +43,7 @@ class SpotsController < ApplicationController
     # @spot = current_user.spots.build
     @spot = Spot.new
 
+
   end
 
   def create
@@ -58,6 +59,8 @@ class SpotsController < ApplicationController
   end
 
   def show
+    @spot = Spot.find(params[:id])
+    
   end
 
   def pricing
