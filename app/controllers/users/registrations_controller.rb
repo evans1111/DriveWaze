@@ -4,8 +4,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
-<<<<<<< HEAD
-=======
   private
 
   def sign_up_params
@@ -16,7 +14,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :current_password)
   end
 
->>>>>>> master
   # GET /resource/sign_up
   # def new
   #   super
@@ -72,7 +69,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
-<<<<<<< HEAD
+
 
  #  private
  #
@@ -83,6 +80,5 @@ class Users::RegistrationsController < Devise::RegistrationsController
  # def account_update_params
  #   params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :current_password)
  # end
-=======
->>>>>>> master
+
 end

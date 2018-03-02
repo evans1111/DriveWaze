@@ -4,9 +4,9 @@ Rails.application.routes.draw do
 
   devise_for :users
   root 'home#index'
-
+  
   resources :users, only: [:show]
-  resources :spot, except: [:edit] do
+  resources :spots, except: [:edit] do
     member do
       get 'street'
       get 'city'

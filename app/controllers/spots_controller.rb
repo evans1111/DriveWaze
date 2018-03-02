@@ -1,11 +1,10 @@
-class SpotController < ApplicationController
+class SpotsController < ApplicationController
   before_action :set_spot, except: [:index, :new, :create]
   before_action :authenticate_user!, except: [:show]
 
 
   def index
     # shows current user spots -- @spots = current_user.spots
-    @spot = Spot.first(2)
 
     GoogleMapsService.configure do |config|
       config.key = ENV["MAPS"]
@@ -15,7 +14,7 @@ class SpotController < ApplicationController
 
       # query = [Spot.find(1).street, Spot.find(1).city, "FL"].join(', ')
       #Grabs first 2 spots. Eventually grab all spots and translating
-      spots = Spot.first(2)
+      spots = Spot.first(5)
 
       #map over all spots
       gon.latlng = spots.map do |spot|
@@ -29,16 +28,21 @@ class SpotController < ApplicationController
     end
 
     #Search function for feed - search by zip code
-    @spots = if params[:zip]
-      Spot.where('zip LIKE ?', "%#{params[:zip]}%")
+
+    if not params[:zip].nil?
+      @spots = Spot.where('zip LIKE ?', params[:zip]).page(params[:spot])
+      # Spot.where('zip LIKE ?', "%#{params[:zip]}%")
     else
-      Spot.all
+      @spots = Spot.all.page(params[:spot])
     end
-    @spots = @spots.page(params[:spot])
+
+
   end
 
   def new
-    @spot = current_user.spots.build
+    # @spot = current_user.spots.build
+    @spot = Spot.new
+
   end
 
   def create
@@ -87,6 +91,6 @@ class SpotController < ApplicationController
   end
 
   def spot_params
-    params.require(:spot).permit(:zip, :city, :street, :description, :price, :image,)
+    params.require(:spot).permit(:zip, :city, :street, :description, :price, :image)
   end
 end

@@ -18,15 +18,16 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+//gon.latlng
 
-// Initialize Map
-function initMap() {
-      //gon.latlng
+
+      function initMap() {
+
       for (var i = 0; i < gon.latlng.length; i++) {
        var test = {lat: gon.latlng[i][0], lng: gon.latlng[i][1]};
 
        var map = new google.maps.Map(document.getElementById('map' + i), {
-         zoom: 12,
+         zoom: 15,
          center: test
        });
        var marker = new google.maps.Marker({
@@ -34,7 +35,15 @@ function initMap() {
          map: map
        });
      }
+
    };
+
+   // map.addListener('turbolinks:load', initMap())
+
+
+// Initialize Map
+
+
 //To place multiple Markers, loop through feed results. Since data is on same domain
 //use Google Maps data layer ex: map.data.loadGeoJson() method
 
