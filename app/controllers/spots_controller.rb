@@ -35,15 +35,11 @@ class SpotsController < ApplicationController
     else
       @spots = Spot.all.page(params[:spot])
     end
-
-
   end
 
   def new
     # @spot = current_user.spots.build
     @spot = Spot.new
-
-
   end
 
   def create
@@ -60,7 +56,7 @@ class SpotsController < ApplicationController
 
   def show
     @spot = Spot.find(params[:id])
-    
+
   end
 
   def pricing
