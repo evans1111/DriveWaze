@@ -1,7 +1,5 @@
-<script type="text/javascript">
-  initMap()
-</script>
 <%= render "menubar" %>
+
 <div class="container">
   <div class="mobile-header-section">
     <h4 class="page-header">Available Parking</h4>
@@ -30,10 +28,13 @@
           </div>
           <div class="card-action">
             <a href="#" class="waves-effect btn #ef6c00 orange darken-3">Park Here</a>
-            <%= link_to "Schedule Available Times",  new_spot_availability_path(spot), class: "waves-effect btn #ef6c00 orange darken-3" %>  
+            <%= link_to "Schedule Available Times",  new_spot_availability_path(spot), class: "waves-effect btn #ef6c00 orange darken-3" %>
           </div>
         </div>
-      <% end  %>
+        <div class="card-action">
+          <a href="#" class="waves-effect btn #ef6c00 orange darken-3">Park Here</a>
+        </div>
+      </div>
     <% end  %>
 
 </div>

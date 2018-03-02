@@ -155,7 +155,7 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
 
 /* Home Page Map Section */
 .map-section {
-  height: 800px;
+  height: 600px;
   width: 100%;
   text-align: center;
 }
@@ -168,10 +168,19 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
 }
 #gmap-home {
   margin: 1rem 0rem;
+  width: 90%;
 }
 
 
 /* End Home Page Map Section */
+
+/* Footer */
+
+.page-footer {
+  background-color: rgba(0,0,0,0.45);
+}
+
+/* End Footer */
 
 /* Login page */
 .login-form {
