@@ -1,0 +1,45 @@
+<%= render "menubar" %>
+<div class="container">
+  <%= form_with(model: @spot, local: true) do |form| %>
+  <% if @spot.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@spot.errors.count, "error") %> prohibited this spot from being saved:</h2>
+
+      <ul>
+      <% @spot.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :city %>
+    <%= form.text_field :city, id: :spot_city %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zip %>
+    <%= form.text_field :zip, id: :spot_zip %>
+  </div>
+
+  <div class="field">
+    <%= form.label :street %>
+    <%= form.text_field :street, id: :spot_street %>
+  </div>
+
+  <div class="field">
+    <%= form.label :available %>
+    <%= form.text_field :available, id: :spot_available %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description, id: :spot_description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+  </div>

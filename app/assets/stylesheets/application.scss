@@ -185,13 +185,21 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
 /* Dashboard */
 
 .dashbackground {
-  background-color: #1B9CE5;
+  background-color: #fff;
 }
-
+.dashsection1 {
+  text-align: center;
+}
 .dashsection3 {
   margin-top: 5em;
   padding: 0 0.75rem;
 }
+
+
+
+/* End Dashboard Styling */
+
+
 /* Feed Page */
 .spot-info {
   font-size: 20px;

@@ -1,11 +1,11 @@
-class SpotController < ApplicationController
+class SpotsController < ApplicationController
   before_action :set_spot, except: [:index, :new, :create]
   before_action :authenticate_user!, except: [:show]
 
 
   def index
     # shows current user spots -- @spots = current_user.spots
-    
+
     GoogleMapsService.configure do |config|
       config.key = ENV["MAPS"]
       config.retry_timeout = 20
@@ -40,7 +40,9 @@ class SpotController < ApplicationController
   end
 
   def new
-    @spot = current_user.spots.build
+    # @spot = current_user.spots.build
+    @spot = Spot.new
+
   end
 
   def create
@@ -89,6 +91,6 @@ class SpotController < ApplicationController
   end
 
   def spot_params
-    params.require(:spot).permit(:zip, :city, :street, :description, :price, :image,)
+    params.require(:spot).permit(:zip, :city, :street, :description, :price, :image)
   end
 end
