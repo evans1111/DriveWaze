@@ -24,18 +24,20 @@ class SpotsController < ApplicationController
         results = gmaps.geocode(query)
         #parse data
         results[0][:geometry][:location].values
+        end
       end
-    end
+    
 
-    #Search function for feed - search by zip code
-
-    if not params[:zip].nil?
+      if not params[:zip].nil?
       @spots = Spot.where('zip LIKE ?', params[:zip]).page(params[:spot])
       # Spot.where('zip LIKE ?', "%#{params[:zip]}%")
     else
       @spots = Spot.all.page(params[:spot])
     end
   end
+
+
+
 
   def new
     # @spot = current_user.spots.build
@@ -90,6 +92,6 @@ class SpotsController < ApplicationController
   end
 
   def spot_params
-    params.require(:spot).permit(:zip, :city, :street, :description, :price, :image)
+    params.require(:spot).permit(:zip, :city, :street, :description, :price, :image, :availability)
   end
 end
