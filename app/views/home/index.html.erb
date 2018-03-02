@@ -4,7 +4,7 @@
   <div class="headline">
     <h1>DriveWaze</h1>
     <h4 id="subheadline">Find an easy and affordable place to park hosted by community locals.</h4>
-    <%= link_to "Park Now", spot_index_path, id: "parkbutton", class: "waves-effect btn #ef6c00 orange darken-3" %><br>
+    <%= link_to "Park Now", spots_path, id: "parkbutton", class: "waves-effect btn #ef6c00 orange darken-3" %><br>
 
     <%= image_tag("white-down-arrow.png") %>
   </div>
@@ -59,6 +59,6 @@
     frameborder="0" style="border:0"
     src= "https://www.google.com/maps/embed/v1/search?key=<%="#{ENV["EMBED_API"]}" %>&q=parking+lots+in+Miami">
 </iframe><br>
-<%= link_to "Park Now", spot_index_path, class: "waves-effect btn #ef6c00 orange darken-3" %>
+<%= link_to "Park Now", spots_path, class: "waves-effect btn #ef6c00 orange darken-3" %>
   <!-- <a id="parkbutton" class=>park now</a><br> -->
 </div>
