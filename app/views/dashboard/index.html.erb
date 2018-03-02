@@ -5,40 +5,23 @@
   <!-- section 1 -->
   <div class="container">
     <div class="dashsection1">
-      <h2>Dashboard</h2>
-      <div class="row">
-        <div class="col s12 m7">
-          <div class="card">
-            <div class="card-image">
-            </div>
-            <div class="card-content">
-              <h5><%= current_user %></h5>
-              <p><%= current_user %></p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <h3>Dashboard</h3>
+      <h5>Welcome, <%= current_user.name %>!</h5><br>
+      <%= image_tag('car.png') %>
     </div>
   </div>
 
   <!-- section 2 -->
-
   <div class="dashsection2">
     <div class="row">
       <div class="col s12 m7">
         <div class="card">
           <div class="card-content">
-            <h5>PARKING SPOT INFO</h5>
-            <p> street </p>
-            <p> description </p>
-            <p> city </p>
-            <p> zip </p>
-            <p>$ price .00/hr</p>
-            <p>Total $ generated</p>
+            <h5>Become A Host</h5>
           </div>
         </div>
         <div class="card-action">
-          <a href="#" class="waves-effect btn #ef6c00 orange darken-3">Add a spot</a>
+          <%= link_to 'Add Location', new_spot_path, class: "waves-effect btn #ef6c00 orange darken-3" %>
           <a href="#" class="waves-effect btn #ef6c00 orange darken-3">Edit your spot</a>
         </div>
       </div>
@@ -84,7 +67,3 @@
       </ul>
     </div>
   </div>
-  <%= console %>
-  <!-- <div class="parkbutton">
-  <a id="parkbutton" class="waves-effect btn #ef6c00 orange darken-3">park now</a><br>
-</div> -->
