@@ -1,4 +1,8 @@
 <!-- <h1>Dashboard#index</h1> -->
+<script type="text/javascript" src="./assets/dashboard.js">
+
+</script>
+
 <script type="text/javascript">
   initMap()
 </script>
@@ -38,7 +42,7 @@
             <% if spot.user_id == current_user.id %>
               <div class="card">
                 <div class="card-image">
-                  <div id="map<%= index %>"></div>
+                  <div class="gmap" id="map<%= index %>"></div>
                 </div>
                 <div class="card-content">
                   <h4><%= spot.street %></h4>
@@ -48,6 +52,7 @@
                 </div>
                 <div class="card-action">
                   <a href="#" class="waves-effect btn #ef6c00 orange darken-3">Edit your spot</a>
+                  <%= link_to "Delete", spot_path(spot), :method => :delete, class: "waves-effect btn #ef6c00 orange darken-3" %>
                 </div>
               </div>
             <% end %>

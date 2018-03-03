@@ -1,6 +1,7 @@
 class SpotsController < ApplicationController
   before_action :set_spot, except: [:index, :new, :create]
   before_action :authenticate_user!, except: [:show]
+  require 'google_maps_service'
 
 
   def index
@@ -26,7 +27,7 @@ class SpotsController < ApplicationController
         results[0][:geometry][:location].values
         end
       end
-    
+
 
     #Search function for feed - search by zip code
     if not params[:zip].nil?
@@ -76,6 +77,12 @@ class SpotsController < ApplicationController
   end
 
   def search
+  end
+
+  def destroy
+    @spot = Spot.find(params[:id])
+    @spot.destroy
+    redirect_to dashboard_index_path
   end
 
   def update

@@ -1,11 +1,6 @@
 Rails.application.routes.draw do
-
-
-
-
-  
   get 'dashboard/index' => 'dashboard#index'
-
+  delete 'spot/:id' => 'spots#destroy'
   devise_for :users
   root 'home#index'
   post 'spots/new' => 'spots#create'
