@@ -25,8 +25,8 @@ class SpotsController < ApplicationController
         results = gmaps.geocode(query)
         #parse data
         results[0][:geometry][:location].values
-        end
       end
+    end
 
 
     #Search function for feed - search by zip code
@@ -52,8 +52,8 @@ class SpotsController < ApplicationController
       # redirect_to listing_spot_path(@spot), notice: "Saved..."
       redirect_to dashboard_index_path , notice: "Your parking spot was created!"
       return
-    # else
-    #   render :new, notice: "Something went wrong..."
+      # else
+      #   render :new, notice: "Something went wrong..."
     end
   end
 
@@ -85,13 +85,19 @@ class SpotsController < ApplicationController
     redirect_to dashboard_index_path
   end
 
+  def edit
+    @spot = Spot.find(params[:id])
+  end
+
   def update
-    if @spot.update(spot_params)
-      flash[:notice] = "Saved..."
-    else
-      flash[:notice] = "Something went wrong..."
-    end
-    redirect_back(fallback_location: request.referer)
+    @spot = Spot.find(params[:id])
+
+      if @spot.update_attributes(spot_params)
+        redirect_to dashboard_index_path, notice: 'Spot was successfully updated.'
+      else
+        render :edit
+      end
+  
   end
 
   private

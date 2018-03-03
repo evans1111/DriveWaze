@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
   get 'dashboard/index' => 'dashboard#index'
+  post 'spots/:id/edit' => 'spots#edit'
   delete 'spot/:id' => 'spots#destroy'
   devise_for :users
   root 'home#index'
   post 'spots/new' => 'spots#create'
 
   resources :users, only: [:show]
-  resources :spots, except: [:edit] do
+  resources :spots do
     resources :availabilities
     member do
       get 'street'

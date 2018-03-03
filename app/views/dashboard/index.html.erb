@@ -54,7 +54,7 @@
                 </div>
                 <div class="card-action" id="hosting-spots-card">
                   <%= link_to "Availability", new_spot_availability_path(spot), class:"waves-effect btn #42a5f5 blue lighten-1", id:"dashboard-hosting-button" %>
-                  <a href="#" class="waves-effect btn #bdbdbd grey lighten-1", id="dashboard-hosting-button">Edit Location</a>
+                  <%= link_to "Edit your spot", edit_spot_path(spot), :method => :update, class: "waves-effect btn #ff3d00 deep-orange accent-3", id:"dashboard-hosting-button" %>
                   <%= link_to "Delete", spot_path(spot), :method => :delete, class: "waves-effect btn #ff3d00 deep-orange accent-3", id:"dashboard-hosting-button" %>
                 </div>
               </div>
