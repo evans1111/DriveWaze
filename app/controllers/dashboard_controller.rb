@@ -1,8 +1,11 @@
 class DashboardController < ApplicationController
   require 'google_maps_service'
+
   def index
     @dashboard = current_user
-    @spots = Spot.all
+    @spots = current_user.spots
+    @availabilities = Availability.all
+
 
     GoogleMapsService.configure do |config|
       config.key = ENV["MAPS"]
@@ -12,7 +15,7 @@ class DashboardController < ApplicationController
 
       # query = [Spot.find(1).street, Spot.find(1).city, "FL"].join(', ')
       #Grabs first 2 spots. Eventually grab all spots and translating
-      spots = Spot.last(5)
+      spots = current_user.spots
 
       #map over all spots
       gon.latlng = spots.map do |spot|
@@ -22,8 +25,11 @@ class DashboardController < ApplicationController
         results = gmaps.geocode(query)
         #parse data
         results[0][:geometry][:location].values
+        end
       end
-    end
+
+
+
   end
 
 

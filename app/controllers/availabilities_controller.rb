@@ -16,7 +16,7 @@ class AvailabilitiesController < ApplicationController
 
 
       if @availability.save
-        redirect_to spots_path
+        redirect_to dashboard_index_path
       else
         p @availability.errors.full_messages
       end
@@ -25,6 +25,6 @@ class AvailabilitiesController < ApplicationController
 
   private
   def availablility_params
-    params.require(:availability).permit(:times, :spot_id)
+    params.require(:availability).permit(:start_time, :end_time, :spot_id)
   end
 end
