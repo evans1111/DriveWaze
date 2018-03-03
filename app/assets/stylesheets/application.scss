@@ -16,8 +16,9 @@ html, body {
 
 /* Navigation */
 nav {
-  background-color: rgba(0,0,0,0.45);
+  background-color: rgba(0,0,0,0.65);
   height: 12vh;
+  box-shadow: none;
 }
 
 .nav-wrapper {
@@ -203,6 +204,12 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
   margin-top: 5em;
   padding: 0 0.75rem;
 }
+#dashboard-hosting-button {
+  width: 32%;
+}
+#hosting-spots-card {
+  padding: 16px 10px;
+}
 
 
 
@@ -242,5 +249,8 @@ input#zip {
 /* Google Map */
 .gmap {
   height: 200px;
-
+}
+#mapDash {
+  height: 200px;
+  width: 100%;
 }

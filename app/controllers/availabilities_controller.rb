@@ -11,20 +11,20 @@ class AvailabilitiesController < ApplicationController
   def create
     # @user = User.find_by(username: params[:username])
     @spot = Spot.find(params[:spot_id])
-    @availability = Availability.new(availablility_params)
-    @availability.spot_id = @spot
+    @availability = Availability.create(availablility_params)
+    @availability.spot = @spot
 
-    respond_to do |format|
+
       if @availability.save
-        format.html {redirect_to dashboard_index_path, notice: "Availability Created!"}
+        redirect_to dashboard_index_path
       else
-        format.html {render :new}
+        p @availability.errors.full_messages
       end
     end
 
-  end
+
   private
   def availablility_params
-    params.require(:availability).permit(:times, :spot_id)
+    params.require(:availability).permit(:start_time, :end_time, :spot_id)
   end
 end

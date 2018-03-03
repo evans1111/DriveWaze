@@ -1,4 +1,4 @@
 class Availability < ApplicationRecord
-  belongs_to :spots #singular?
+  belongs_to :spot
   has_many :bookings
 end

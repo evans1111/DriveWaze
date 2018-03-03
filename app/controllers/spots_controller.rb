@@ -5,7 +5,7 @@ class SpotsController < ApplicationController
 
   def index
     # shows current user spots -- @spots = current_user.spots
-    @spot = Spot.all
+    spots = Spot.all
     GoogleMapsService.configure do |config|
       config.key = ENV["MAPS"]
       config.retry_timeout = 20
@@ -27,6 +27,7 @@ class SpotsController < ApplicationController
       end
     end
 
+
     #Search function for feed - search by zip code
     if not params[:zip].nil?
       @spots = Spot.where('zip LIKE ?', params[:zip]).page(params[:spot])
@@ -35,6 +36,9 @@ class SpotsController < ApplicationController
       @spots = Spot.all.page(params[:spot])
     end
   end
+
+
+
 
   def new
     # @spot = current_user.spots.build
@@ -47,8 +51,8 @@ class SpotsController < ApplicationController
       # redirect_to listing_spot_path(@spot), notice: "Saved..."
       redirect_to dashboard_index_path , notice: "Your parking spot was created!"
       return
-    # else
-    #   render :new, notice: "Something went wrong..."
+      # else
+      #   render :new, notice: "Something went wrong..."
     end
   end
 
@@ -74,13 +78,25 @@ class SpotsController < ApplicationController
   def search
   end
 
+  def destroy
+    @spot = Spot.find(params[:id])
+    @spot.destroy
+    redirect_to dashboard_index_path
+  end
+
+  def edit
+    @spot = Spot.find(params[:id])
+  end
+
   def update
-    if @spot.update(spot_params)
-      flash[:notice] = "Saved..."
-    else
-      flash[:notice] = "Something went wrong..."
-    end
-    redirect_back(fallback_location: request.referer)
+    @spot = Spot.find(params[:id])
+
+      if @spot.update_attributes(spot_params)
+        redirect_to dashboard_index_path, notice: 'Spot was successfully updated.'
+      else
+        render :edit
+      end
+
   end
 
   private
@@ -90,6 +106,6 @@ class SpotsController < ApplicationController
   end
 
   def spot_params
-    params.require(:spot).permit(:zip, :city, :street, :description, :price, :image)
+    params.require(:spot).permit(:zip, :city, :street, :description, :price, :image, :availability)
   end
 end

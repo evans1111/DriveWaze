@@ -4,17 +4,22 @@
 
     <div class="field">
       <%= form.label :street %>
-      <%= form.text_field :street, id: :spot_street %>
+      <%= form.text_field :street, id: :spot_street, :required => 'required' %>
     </div>
 
     <div class="field">
       <%= form.label :zip %>
-      <%= form.text_field :zip, id: :spot_zip %>
+      <%= form.text_field :zip, id: :spot_zip, :required => 'required' %>
     </div>
 
     <div class="field">
       <%= form.label :city %>
-      <%= form.text_field :city, id: :spot_city %>
+      <%= form.text_field :city, id: :spot_city, :required => 'required' %>
+    </div>
+
+    <div class="field">
+      <%= form.label 'Set Your Hourly Rate' %>
+      <%= form.text_field :price, id: :spot_price, :required => 'required' %>
     </div>
 
     <div class="field">

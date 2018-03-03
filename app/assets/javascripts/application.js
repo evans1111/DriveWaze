@@ -18,9 +18,7 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
-//gon.latlng
-
-
+var map, map2
       function initMap() {
 
       for (var i = 0; i < gon.latlng.length; i++) {
@@ -37,6 +35,26 @@
      }
 
    };
+
+   function initialize() {
+        var myOptions = {
+          zoom: 12,
+          center: new google.maps.LatLng(25.7617, -80.1918)
+        }
+
+        map2 = new google.maps.Map(document.getElementById('mapDash'), myOptions)
+        
+        for (var i = 0; i < gon.latlng.length; i++) {
+          var latlng = {lat: gon.latlng[i][0], lng: gon.latlng[i][1]}
+          var park = new google.maps.Marker({
+            position: latlng,
+            map: map2
+          })
+        }
+};
+
+
+
 
    // map.addListener('turbolinks:load', initMap())
 
