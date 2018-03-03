@@ -40,6 +40,7 @@ gem 'hirb'
 gem 'gon'
 gem 'kaminari'
 gem 'search_object'
+gem "combined_time_select", "~> 2.0.0"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

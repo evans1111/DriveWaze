@@ -4,6 +4,8 @@ class DashboardController < ApplicationController
   def index
     @dashboard = current_user
     @spots = current_user.spots
+    @availabilities = Availability.all
+
 
     GoogleMapsService.configure do |config|
       config.key = ENV["MAPS"]

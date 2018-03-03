@@ -3,7 +3,7 @@
   <!-- section 1 -->
   <div class="container">
     <div class="dashsection1">
-      <h3>Dashboard</h3>
+      <h3>DriveWaze</h3>
       <h5>Welcome, <%= current_user.name %>!</h5><br>
       <%= image_tag('car.png') %>
     </div>
@@ -14,6 +14,7 @@
       <div class="card">
         <div class="card-content">
           <h5>Your bookings</h5>
+          <%= link_to "Park Now", spots_path, id: "", class: "waves-effect btn #ef6c00 orange darken-3" %>
         </div>
       </div>
     </div>
@@ -22,7 +23,7 @@
       <div class="card">
         <div class="card-content">
           <h5>Become A Host</h5>
-          <%= link_to 'Add Location', new_spot_path, class: "waves-effect btn #ef6c00 orange darken-3" %>
+          <%= link_to 'Add Location', new_spot_path, class: "waves-effect btn #42a5f5 blue lighten-1" %>
         </div>
       </div>
     </div>
@@ -38,14 +39,24 @@
                   <p><%= spot.zip %></p>
                   <p><%= spot.price %></p>
                   <p><%= spot.description %></p>
+                    <% spot.availabilities.each do |x| %>
+                      <% if x != nil %>
+                        <p>Available from: <%= x.start_time %></p>
+                        <p>Until<%= x.end_time %></p>
+                      <% else %>
+                        <p>This parking spot has no availabilities yet.</p>
+                      <% end %>
+                  <% end %>
+
                 </div>
-                <div class="card-action">
-                  <a href="#" class="waves-effect btn #ef6c00 orange darken-3">Edit your spot</a>
-                  <%= link_to "Delete", spot_path(spot), :method => :delete, class: "waves-effect btn #ef6c00 orange darken-3" %>
+                <div class="card-action" id="hosting-spots-card">
+                  <%= link_to "Availability", new_spot_availability_path(spot), class:"waves-effect btn #42a5f5 blue lighten-1", id:"dashboard-hosting-button" %>
+                  <a href="#" class="waves-effect btn #bdbdbd grey lighten-1", id="dashboard-hosting-button">Edit Location</a>
+                  <%= link_to "Delete", spot_path(spot), :method => :delete, class: "waves-effect btn #ff3d00 deep-orange accent-3", id:"dashboard-hosting-button" %>
                 </div>
               </div>
             <% end %>
-          <% end %>
+
 
     </div>
   </div>
