@@ -15,7 +15,7 @@ class DashboardController < ApplicationController
 
       # query = [Spot.find(1).street, Spot.find(1).city, "FL"].join(', ')
       #Grabs first 2 spots. Eventually grab all spots and translating
-      spots = current_user.spots  
+      spots = current_user.spots
 
       #map over all spots
       gon.latlng = spots.map do |spot|
