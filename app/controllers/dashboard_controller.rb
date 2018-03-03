@@ -1,8 +1,9 @@
 class DashboardController < ApplicationController
   require 'google_maps_service'
+
   def index
     @dashboard = current_user
-    @spots = Spot.all
+    @spots = Spot.last(5)
 
     GoogleMapsService.configure do |config|
       config.key = ENV["MAPS"]
@@ -22,8 +23,11 @@ class DashboardController < ApplicationController
         results = gmaps.geocode(query)
         #parse data
         results[0][:geometry][:location].values
+        end
       end
-    end
+
+
+
   end
 
 
