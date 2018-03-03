@@ -2,7 +2,9 @@ class DashboardController < ApplicationController
   require 'google_maps_service'
   def index
     @dashboard = current_user
-    @spots = Spot.all
+    @spots = current_user.spots
+    @availabilities = Availability.all
+
 
     GoogleMapsService.configure do |config|
       config.key = ENV["MAPS"]

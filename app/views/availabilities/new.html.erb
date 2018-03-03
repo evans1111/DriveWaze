@@ -4,16 +4,22 @@
 
 <h1>Create Your Availabilities</h1>
 
+
 <%= form_for [@spot, @availability] do |f| %>
-<div class="field">
+  <div class="field">
+    <p>
+      <%= f.label 'Start Time' %>
+      <%= f.time_field :start_time, class: 'timepicker' %>
+    </p>
+  </div>
 
+  <div class="field">
+    <p>
+      <%= f.label 'End Time' %>
+      <%= f.time_field :end_time, class: 'timepicker' %>
+    </p>
+  </div>
 
-<p>
-
-<%= f.label :available_times %>
-<%= f.text_field :times, class: 'timepicker' %>
-</p>
-</div>
-<%= f.submit "Submit", class:"waves-effect btn #ef6c00 orange darken-3" %>
-<% end  %>
+  <%= f.submit "Submit", class:"waves-effect btn #ef6c00 orange darken-3" %>
+  <% end  %>
 </div>

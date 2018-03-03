@@ -62,6 +62,8 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
+    combined_time_select (2.0.0)
+      rails (>= 5.0.0)
     concurrent-ruby (1.0.5)
     crass (1.0.3)
     devise (4.4.1)
@@ -255,6 +257,7 @@ DEPENDENCIES
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
+  combined_time_select (~> 2.0.0)
   devise (~> 4.2)
   faker
   figaro
