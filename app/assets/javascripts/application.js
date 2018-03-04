@@ -43,7 +43,7 @@ var map, map2
         }
 
         map2 = new google.maps.Map(document.getElementById('mapDash'), myOptions)
-        
+
         for (var i = 0; i < gon.latlng.length; i++) {
           var latlng = {lat: gon.latlng[i][0], lng: gon.latlng[i][1]}
           var park = new google.maps.Marker({
@@ -66,11 +66,11 @@ var map, map2
 //use Google Maps data layer ex: map.data.loadGeoJson() method
 
 
-$(document).ready(function() {
-   $(".button-collapse").sideNav();
+$(document).on('turbolinks:load', function() {
+  Waves.displayEffect();
+   $(".button-collapse").sideNav(
+ );
    console.log("javaScript is working!");
-
-
 });
 
 // scrolling effect
