@@ -18,9 +18,12 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
-var map, map2
-      function initMap() {
 
+
+//Map for Feed page
+var map, map2, map3
+
+  function initMap() {
       for (var i = 0; i < gon.latlng.length; i++) {
        var test = {lat: gon.latlng[i][0], lng: gon.latlng[i][1]};
 
@@ -34,12 +37,13 @@ var map, map2
        });
      }
 
-   };
+};
 
+//Map for dashboard
    function initialize() {
         var myOptions = {
           zoom: 12,
-          center: new google.maps.LatLng(25.7617, -80.1918)
+          center: new google.maps.LatLng(25.7625231,-80.194664)
         }
 
         map2 = new google.maps.Map(document.getElementById('mapDash'), myOptions)
@@ -51,7 +55,15 @@ var map, map2
             map: map2
           })
         }
-};
+      };
+
+//Directions Map
+
+
+
+
+
+
 
 
 

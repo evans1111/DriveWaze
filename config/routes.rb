@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
   get '/home' => 'home#index'
   post 'spots/new' => 'spots#create'
-
+  get 'dashboard/show' => 'dashboard#show'
   resources :bookings
   resources :users, only: [:show]
   resources :spots do

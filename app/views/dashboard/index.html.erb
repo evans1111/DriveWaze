@@ -1,17 +1,13 @@
 <%= render "menubar" %>
 <div class="dashbackground">
-
   <!-- section 1 -->
 <div class="container">
-
 </div>
     <div class="row">
-
       <!-- DESKTOP VIEW (Sidebar) -->
       <div class="hide-on-small-only">
         <div class="row">
           <div class="col s3" id="dashboard-sidebar">
-
             <!-- Sidebar panel -->
               <div class="dashboard-welcome">
                 <div class="dashboard-welcome-content">
@@ -29,7 +25,6 @@
                 <li><a class="dash-sublinks" href="#">Support</a></li>
               </div>
           </div>
-
           <div class="col s9">
             <!-- Page content  -->
             <div class="container" id="dash-container">
@@ -39,21 +34,19 @@
                 </div>
                 <div class="col s4">
                   <div class="dash-reservations">
+                    <% if current_user.bookings != nil  %>
                     <h5>Your Reservations</h5>
                     <% current_user.bookings.each do |booking| %>
                       <li>
-                      <%= booking.availability.start_time %> - <%= booking.availability.end_time %>
-                      <%= booking.availability.spot.street %>
-                      <%= booking.availability.spot.city %>
-                      <%= link_to 'Get Directions' %>
-
+                        
                       </li>
+                      <% else %>
+                      <p>Bookings</p>
+                    <% end %>
                     <% end %>
                   </div>
                 </div>
               </div>
-
-
             <%if current_user.spots.empty? %>
               <h5>You don't currently host any parking spots.</h5>
               <p>Hosting is easy. Click here to sign up!</p>
@@ -90,9 +83,6 @@
         </div>
       </div>
     </div>
-
-
-
       <!-- MOBILE VIEW (No Columns) -->
       <div class="hide-on-med-and-up">
         <div class="card">
@@ -101,8 +91,6 @@
               <%= link_to "Park Now", spots_path, id: "", class: "waves-effect btn #ef6c00 orange darken-3" %>
           </div>
         </div>
-
-
         <div>
           <div class="card">
             <div class="card-content">
@@ -112,12 +100,7 @@
           </div>
         </div>
       </div>
-
-
     </div>
-
-
-
     <script type="text/javascript">
       initialize()
     </script>
