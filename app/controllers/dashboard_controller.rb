@@ -32,6 +32,25 @@ class DashboardController < ApplicationController
 
   end
 
+  def show
+    GoogleMapsService.configure do |config|
+      config.key = ENV["MAPS"]
+      config.retry_timeout = 20
+      config.queries_per_second = 10
+    gmaps = GoogleMapsService::Client.new
+    @routes = gmaps.directions(
+    '549 nw 28th st, Miami, FL, 33127, USA',
+    '79 sw 12th st, Miami, FL, 33130, USA',
+    mode: 'driving',
+    alternatives: false)
+    gon.start_address = @routes[0][:legs][0][:start_address]
+    gon.end_address = @routes[0][:legs][0][:end_address]
+    gon.center_lat = @routes[0][:legs][0][:start_location][:lat]
+    gon.center_lng = @routes[0][:legs][0][:start_location][:lng]
+  end
+
+  end
+
 
 private
 

@@ -18,8 +18,13 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
-var map, map2
+
+
+//Map for Feed page
+var map, map2, map3
+
       function initMap() {
+        showMap();
 
       for (var i = 0; i < gon.latlng.length; i++) {
        var test = {lat: gon.latlng[i][0], lng: gon.latlng[i][1]};
@@ -35,15 +40,15 @@ var map, map2
      }
 
    };
-
+//Map for dashboard
    function initialize() {
         var myOptions = {
           zoom: 12,
-          center: new google.maps.LatLng(25.7617, -80.1918)
+          center: new google.maps.LatLng(25.7625231,-80.194664)
         }
 
         map2 = new google.maps.Map(document.getElementById('mapDash'), myOptions)
-        
+
         for (var i = 0; i < gon.latlng.length; i++) {
           var latlng = {lat: gon.latlng[i][0], lng: gon.latlng[i][1]}
           var park = new google.maps.Marker({
@@ -51,7 +56,38 @@ var map, map2
             map: map2
           })
         }
-};
+      };
+
+//Directions Map
+function showMap() {
+   var directionsService = new google.maps.DirectionsService;
+   var directionsDisplay = new google.maps.DirectionsRenderer;
+   var map3 = new google.maps.Map(document.getElementById('showMap'), {
+     zoom: 7,
+     center: {lat:gon.center_lat, lng:gon.center_lng}
+   });
+   directionsDisplay.setMap(map3);
+
+   calculateAndDisplayRoute(directionsService, directionsDisplay);
+
+ }
+
+ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+   directionsService.route({
+     origin: gon.start_address,//document.getElementById('start').value,
+     destination: gon.end_address,//document.getElementById('end').value,
+     travelMode: 'DRIVING'
+   }, function(response, status) {
+     if (status === 'OK') {
+       directionsDisplay.setDirections(response);
+     } else {
+       window.alert('Directions request failed due to ' + status);
+     }
+   });
+ }
+
+
+
 
 
 

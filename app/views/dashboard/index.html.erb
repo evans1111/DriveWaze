@@ -29,6 +29,7 @@
     </div>
 
           <h5>Your Hosted Parking Spots</h5>
+          <p>You have <%= current_user.spots.count %> spot(s)</p>
           <% @spots.each_with_index do |spot, i| %>
             <% if spot.user_id == current_user.id %>
               <div class="card">
@@ -77,9 +78,7 @@
 
     </div>
   </div>
-  <!-- <script
-    src="https://maps.googleapis.com/maps/api/js?&callback=initialize">
-    </script> -->
+
     <script type="text/javascript">
       initialize()
     </script>

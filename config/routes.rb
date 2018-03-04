@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'home#index'
   post 'spots/new' => 'spots#create'
-
+  get 'dashboard/show' => 'dashboard#show'
   resources :users, only: [:show]
   resources :spots do
     resources :availabilities
