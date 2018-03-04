@@ -1,4 +1,5 @@
 <!-- <div class="navbar-fixed"> -->
+<% if user_signed_in? %>
   <nav>
     <div class="nav-wrapper">
       <div class="container">
@@ -6,8 +7,6 @@
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
           <li><%= link_to 'Home', root_path %></li>
-          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-          <li><%= link_to 'Sign In', new_user_session_path %></li>
           <li><%= link_to "My Dashboard", dashboard_index_path %></li>
           <li><%= link_to "Park Now", spots_path %></li>
           <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
@@ -15,8 +14,6 @@
         </ul>
         <ul class="side-nav" id="mobile-demo">
           <li><%= link_to 'Home', root_path %></li>
-          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-          <li><%= link_to 'Sign In', new_user_session_path %></li>
           <li><%= link_to "My Dashboard", dashboard_index_path %></li>
           <li><%= link_to "Park Now", spots_path %></li>
           <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
@@ -25,3 +22,26 @@
     </div>
   </nav>
 <!-- </div> -->
+<% else %>
+<nav>
+  <div class="nav-wrapper">
+    <div class="container">
+      <%= link_to image_tag("logo1_mobile.png"), root_path, class:"brand-logo"  %>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><%= link_to 'Home', root_path %></li>
+        <li><%= link_to "Park Now", spots_path %></li>
+        <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+        <li><%= link_to 'Sign In', new_user_session_path %></li>
+
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><%= link_to 'Home', root_path %></li>
+        <li><%= link_to "Park Now", spots_path %></li>
+        <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+        <li><%= link_to 'Sign In', new_user_session_path %></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<% end %>
