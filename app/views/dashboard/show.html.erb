@@ -1,10 +1,38 @@
+<script type="text/javascript">
 
+</script>
 <h1>Directions to your parking spot</h1>
 
 <div id="showMap" style="height: 500px">
 
 </div>
-
 <script type="text/javascript">
-showMap();
+function initMap() {
+   var directionsService = new google.maps.DirectionsService;
+   var directionsDisplay = new google.maps.DirectionsRenderer;
+   var map3 = new google.maps.Map(document.getElementById('showMap'), {
+     zoom: 7,
+     center: {lat:gon.center_lat, lng:gon.center_lng}
+   });
+   directionsDisplay.setMap(map3);
+
+   calculateAndDisplayRoute(directionsService, directionsDisplay);
+
+ }
+
+ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+   directionsService.route({
+     origin: gon.start_address,//document.getElementById('start').value,
+     destination: gon.end_address,//document.getElementById('end').value,
+     travelMode: 'DRIVING'
+   }, function(response, status) {
+     if (status === 'OK') {
+       directionsDisplay.setDirections(response);
+     } else {
+       window.alert('Directions request failed due to ' + status);
+     }
+   });
+   
+ }
+
 </script>
