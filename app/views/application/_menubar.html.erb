@@ -4,7 +4,7 @@
   <nav>
     <div class="nav-wrapper">
       <div class="container">
-        <%= link_to image_tag("logo1_mobile.png"),( current_user ? root_path : home_path), class:"brand-logo"  %>
+        <%= link_to image_tag("logo1_mobile.png"),(current_user ? root_path : dashboard_index_path), class:"brand-logo"  %>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
           <li><%= link_to 'Home',( current_user ? root_path : home_path) %></li>

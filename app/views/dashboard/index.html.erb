@@ -1,4 +1,4 @@
-<%= render "menubar" %>
+
 <div class="dashbackground">
   <!-- section 1 -->
 <div class="container">
@@ -34,14 +34,19 @@
                 </div>
                 <div class="col s4">
                   <div class="dash-reservations">
-                    <% if current_user.bookings != nil  %>
+
                     <h5>Your Reservations</h5>
+                    <% if current_user.bookings.empty?  %>
                     <% current_user.bookings.each do |booking| %>
                       <li>
-                        
+
+                      <%= booking.availability.start_time %> - <%= booking.availability.end_time %>
+                      <%= booking.availability.spot.street %>
+                      <%= booking.availability.spot.city %>
+                      <%= link_to 'Get Directions' %>
                       </li>
                       <% else %>
-                      <p>Bookings</p>
+                      <p>You dont have any Bookings</p>
                     <% end %>
                     <% end %>
                   </div>

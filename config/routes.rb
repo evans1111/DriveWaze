@@ -2,10 +2,10 @@ Rails.application.routes.draw do
   post 'spots/:id/edit' => 'spots#edit'
   delete 'spot/:id' => 'spots#destroy'
   devise_for :users
-  authenticate :user do
-    root 'dashboard#index'
-  end
-  get '/home' => 'home#index'
+  
+  get 'dashboard/index' => 'dashboard#index'
+
+  root 'home#index'
   post 'spots/new' => 'spots#create'
   get 'dashboard/show' => 'dashboard#show'
   resources :bookings
