@@ -204,14 +204,69 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
   margin-top: 5em;
   padding: 0 0.75rem;
 }
+.dashboard-welcome {
+  border-bottom: 2px solid #ccc;
+  height: 20%;
+  width: 100%;
+}
+.dashboard-welcome-content {
+  padding: 1rem;
+}
+#dashboard-delete-button {
+  width: 32%;
+  color: #ef6c00;
+  float: right;
+  font-size: 18px;
+}
 #dashboard-hosting-button {
   width: 32%;
+  border: 1px solid #ccc;
+  color: #222;
+  padding: 0.5rem;
 }
 #hosting-spots-card {
   padding: 16px 10px;
 }
+.dash-sidebar-links {
+  list-style: none;
+  padding: 1rem;
+}
+.small.material-icons {
+  float: left;
+}
+#dashboard-sidebar {
+  border: 1px solid #ccc;
+  height: 100vh;
+  padding: 0;
+  min-width: 270px;
 
-
+  -webkit-box-shadow: 10px 10px 29px -8px rgba(119,119,119,1);
+  -moz-box-shadow: 10px 10px 29px -8px rgba(119,119,119,1);
+  box-shadow: 10px 10px 29px -8px rgba(119,119,119,1);
+}
+#sidebar-container {
+  text-align: left;
+}
+#become-host-button {
+  height: 3rem;
+  width: 100%;
+  margin: 1rem 0rem;
+  padding-top: 0.3rem;
+  min-width: 200px;
+}
+.dash-sublinks {
+  list-style: none;
+  font-size: 18px;
+  color: #222;
+  font-weight: 800;
+  line-height: 3rem;
+}
+body > div.dashbackground > div.row > div > div > div.col.s9 {
+  width: 70%;
+}
+#dash-container {
+  width: 90%;
+}
 
 /* End Dashboard Styling */
 
@@ -235,6 +290,13 @@ input#zip {
   height: 44px;
   margin-bottom: 1vh;
 }
+#available-times {
+  display: inline-flex;
+}
+.time-select {
+  margin: 0rem 0.5rem;
+  text-align: center;
+}
 
 
 /* Pagination */
@@ -251,8 +313,13 @@ input#zip {
   height: 200px;
 }
 #mapDash {
-  height: 200px;
+  height: 40vh;
   width: 100%;
+  margin-top: 4rem;
+  border: 1px solid #ccc;
+}
+.dash-reservations {
+  margin-top: 4rem;
 }
 #showMap {
   height: 200px;

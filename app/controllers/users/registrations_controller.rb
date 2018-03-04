@@ -7,11 +7,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
 
   def sign_up_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :phone_number, :password, :password_confirmation)
   end
 
   def account_update_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :current_password)
+    params.require(:user).permit(:name, :email, :phone_number, :password, :password_confirmation, :current_password)
   end
 
   # GET /resource/sign_up
@@ -61,9 +61,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def after_sign_up_path_for(resource)
+    return dashboard_index_path
+  end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)

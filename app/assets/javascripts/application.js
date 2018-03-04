@@ -78,11 +78,11 @@ var map, map2, map3
 //use Google Maps data layer ex: map.data.loadGeoJson() method
 
 
-$(document).ready(function() {
-   $(".button-collapse").sideNav();
+$(document).on('turbolinks:load', function() {
+  Waves.displayEffect();
+   $(".button-collapse").sideNav(
+ );
    console.log("javaScript is working!");
-
-
 });
 
 // scrolling effect
