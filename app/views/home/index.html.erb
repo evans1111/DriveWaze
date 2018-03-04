@@ -5,13 +5,13 @@
     <h1>DriveWaze</h1>
     <h4 id="subheadline">Find an easy and affordable place to park hosted by community locals.</h4>
     <a id="parkbutton" class="waves-effect btn #ef6c00 orange darken-3">park now</a><br>
-    <%= image_tag("white-down-arrow.png") %>
+    <div class="arrow"><%= image_tag("white-down-arrow.png") %></div>
   </div>
 
 </div>
 
 <div class="container">
-  <div class="section2">
+  <div class="section2" style="display: flex;">
     <h3 id="process">How it works?</h3>
 
     <div class="icon1">
@@ -58,5 +58,5 @@
     frameborder="0" style="border:0"
     src= "https://www.google.com/maps/embed/v1/search?key=<%="#{ENV["EMBED_API"]}"%>&q=parking+lots+in+Miami">
 </iframe>
-  <a id="parkbutton" class="waves-effect btn #ef6c00 orange darken-3">park now</a><br>
+  <a id="parkbutton2" class="waves-effect btn #ef6c00 orange darken-3">park now</a><br>
 </div>

@@ -12,11 +12,11 @@ nav {
 }
 
 .nav-wrapper {
-    transition: 0.2s all linear;
+  transition: 0.2s all linear;
 }
 
 .nav-wrapper.alt-color {
-    background-color: #000;
+  background-color: #000;
 }
 
 /* hamburger menu icon */
@@ -97,15 +97,15 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
 
   &:before,
   &:after {
-  background: inherit;
-  content: '';
-  display: block;
-  height: 50%;
-  left: 0;
-  position: absolute;
-  right: 0;
-  z-index: -1;
-  -webkit-backface-visibility: hidden; // for Chrome Windows
+    background: inherit;
+    content: '';
+    display: block;
+    height: 50%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    z-index: -1;
+    -webkit-backface-visibility: hidden; // for Chrome Windows
   }
   &:before {
     top: 0;
@@ -170,4 +170,112 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
 }
 #form-buttons {
   margin: 1rem 0rem;
+}
+
+@media screen and (min-width: 768px) {
+  #parkbutton{
+    width: 16%;
+    font-weight: bold;
+  }
+  .headline{
+
+  }
+  .background-image {
+    height: 482px;
+  }
+
+element.style {
+    display: flex;
+}
+.icon1, .icon2, .icon3{
+  margin-top: -20px;
+  margin-left: 123px;
+}
+.process{
+  margin-top:-20px;
+  margin-left:-300px;
+  // font-weight: 700;
+  // font-weight: bold;
+}
+h3 {
+  font-weight: bold;
+  margin-left:-300px;
+  }
+.section2{
+  margin-left: 113px;
+}
+.arrow{
+  visibility: hidden;
+}
+nav ul a{
+  font-size: 30px;
+}
+nav ul a:hover{
+  opacity:0.6;
+  margin-top: 2px;
+}
+#parkbutton:hover{
+ -webkit-transform: rotate(-7deg);
+ -moz-transform: rotate(-7deg);
+ -o-transform: rotate(-7deg);
+}
+h1{
+  font-family: cardo;
+  text-shadow: 0.07em 0.07em 0 rgba(0, 0, 0, 0.5);
+  font-style: italic;
+  font-size: 5.2rem;
+}
+.section3{
+  margin-top:-886px;
+  height: 400px;
+}
+#testimonial-headline{
+  padding-left: 330px;
+  margin-top: -85px;
+}
+
+.map-section{
+  margin-top:auto;
+  margin-bottom:auto;
+  // margin-top: -23px;
+  // margin-bottom: -313px;
+}
+#parkbutton2{
+  height: 4rem;
+  width: 15%;
+  margin: 0 auto;
+  margin-bottom: 5rem;
+  font-size: 24px;
+  padding-top: 0.7rem;
+  margin-left: -282px;
+  margin-top:  158px;
+}
+#parkbutton2:hover{
+ -webkit-transform: rotate(-7deg);
+ -moz-transform: rotate(-7deg);
+ -o-transform: rotate(-7deg);
+}
+#map-section-subheadline{
+  font-size: 39px;
+}
+  #map-section-headline{
+    margin-left: 89px;
+
+  }
+  .testimonial-photo{
+    border: 2px solid #fff;
+  }
+  .testimonial-text{
+    margin-top: -14px;
+    margin-bottom: 62px;
+  }
+  .testimonial-photo{
+    margin-top: -38px;
+  }
+  .testimonial-stars{
+    margin-top: -14px;
+  }
+  .testimonial-name{
+    margin-top: -53px;
+  }
 }
