@@ -23,6 +23,7 @@
               <div class="dash-sidebar-links">
                 <a href="/spots", class="waves-effect btn #ef6c00 orange darken-3", id="become-host-button"><i class="small material-icons">directions_car</i>Park Now</a>
                 <a href="/spots/new", class="waves-effect btn #42a5f5 blue lighten-1", id="become-host-button"><i class="small material-icons">add_location</i>Become A Host</a><br>
+                <li><a class="dash-sublinks" href="/bookings">Bookings</a></li>
                 <li><a class="dash-sublinks" href="#">Earnings</a></li>
                 <li><a class="dash-sublinks" href="#">Refer A Friend</a></li>
                 <li><a class="dash-sublinks" href="#">Support</a></li>
@@ -39,6 +40,15 @@
                 <div class="col s4">
                   <div class="dash-reservations">
                     <h5>Your Reservations</h5>
+                    <% current_user.bookings.each do |booking| %>
+                      <li>
+                      <%= booking.availability.start_time %> - <%= booking.availability.end_time %>
+                      <%= booking.availability.spot.street %>
+                      <%= booking.availability.spot.city %>
+                      <%= link_to 'Get Directions' %>
+
+                      </li>
+                    <% end %>
                   </div>
                 </div>
               </div>
@@ -65,9 +75,13 @@
                     </div>
                 <% end  %>
                     <div class="card-action" id="hosting-spots-card">
-                      <%= link_to "Availability", new_spot_availability_path(spot), class:"waves-effect btn #42a5f5 blue lighten-1", id:"dashboard-hosting-button" %>
-                      <%= link_to "Edit your spot", edit_spot_path(spot), :method => :update, class: "waves-effect btn #ff3d00 deep-orange accent-3", id:"dashboard-hosting-button" %>
-                      <%= link_to "Delete", spot_path(spot), :method => :delete, class: "waves-effect btn #ff3d00 deep-orange accent-3", id:"dashboard-hosting-button" %>
+                      <%= link_to new_spot_availability_path(spot), class:"", id:"dashboard-hosting-button" do %>
+                      Availability<i class="small material-icons">timer</i>
+                      <% end %>
+                      <%= link_to "Edit your spot", edit_spot_path(spot), :method => :update, class: "", id:"dashboard-hosting-button" %>
+                      <%= link_to spot_path(spot), :method => :delete, class: "", id:"dashboard-delete-button" do %>
+                        Remove<i class="small material-icons">delete</i>
+                      <% end %>
                     </div>
                   </div>
               <% end %>

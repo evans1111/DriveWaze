@@ -212,8 +212,17 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
 .dashboard-welcome-content {
   padding: 1rem;
 }
+#dashboard-delete-button {
+  width: 32%;
+  color: #ef6c00;
+  float: right;
+  font-size: 18px;
+}
 #dashboard-hosting-button {
   width: 32%;
+  border: 1px solid #ccc;
+  color: #222;
+  padding: 0.5rem;
 }
 #hosting-spots-card {
   padding: 16px 10px;
@@ -280,6 +289,13 @@ input#zip {
   border-radius: 20px;
   height: 44px;
   margin-bottom: 1vh;
+}
+#available-times {
+  display: inline-flex;
+}
+.time-select {
+  margin: 0rem 0.5rem;
+  text-align: center;
 }
 
 

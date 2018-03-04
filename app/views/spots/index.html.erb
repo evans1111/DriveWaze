@@ -28,8 +28,17 @@
             <p class="spot-info">Zip: <%= spot.zip %></p>
             <p class="spot-info">$<%= spot.price %>.00/hr</p>
           </div>
-          <div class="card-action">
-            <a href="#" class="waves-effect btn #ef6c00 orange darken-3">Park Here</a>
+          <div class="card-action" id="available-times">
+            <% spot.availabilities.each do |avail| %>
+              <% if avail.avialable %>
+                <div class="time-select">
+                  <h6><%= avail.time_range%></h6>
+                  <!-- <%= link_to 'Book', bookings_path(availability_id: avail.id), id:"book-buttons", class: "waves-effect btn #757575 grey darken-1", method: :post %> -->
+                  <%= link_to 'Book', bookings_path(availability_id: avail.id), class: "waves-effect btn #757575 grey darken-1", method: :post%>
+
+                </div>
+              <% end %>
+            <% end %>
           </div>
 
         </div>

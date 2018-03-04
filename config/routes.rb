@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/home' => 'home#index'
   post 'spots/new' => 'spots#create'
 
+  resources :bookings
   resources :users, only: [:show]
   resources :spots do
     resources :availabilities
