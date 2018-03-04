@@ -9,33 +9,77 @@
 
 
 <script type="text/javascript">
+var showLat;
 
 function initMap() {
-   var directionsService = new google.maps.DirectionsService;
-   var directionsDisplay = new google.maps.DirectionsRenderer;
-   var map3 = new google.maps.Map(document.getElementById('showMap'), {
-     zoom: 7,
-     center: {lat:gon.center_lat, lng:gon.center_lng}
-   });
-   directionsDisplay.setMap(map3);
+  var directionsService = new google.maps.DirectionsService;
+  var directionsDisplay = new google.maps.DirectionsRenderer;
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
 
-   calculateAndDisplayRoute(directionsService, directionsDisplay);
+function showPosition(position) {
+  showLat = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
- }
+  var options = {
+    zoom: 13,
+    center: showLat
+  }
+  var map3 = new google.maps.Map(document.getElementById('showMap'), options)
+  // new google.maps.Marker({
+  //         map: map3,
+  //         position: showLat
+  //       })
+  //     }
+directionsDisplay.setMap(map3);
+calculateAndDisplayRoute(directionsService, directionsDisplay);
+  }
+}
+function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+  directionsService.route({
+    origin: showLat,//document.getElementById('start').value,
+    destination: '49 sw 11th st',//document.getElementById('end').value,
+    travelMode: 'DRIVING'
+  }, function(response, status) {
+    if (status === 'OK') {
+      directionsDisplay.setDirections(response);
+    } else {
+      window.alert('Directions request failed due to ' + status);
+    }
+  });
+}
+//    49 sw 11th st
+// function initMap() {
+//   getLocation();
+//   var userLatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+//    var directionsService = new google.maps.DirectionsService;
+//    var directionsDisplay = new google.maps.DirectionsRenderer;
+//    var map3 = new google.maps.Map(document.getElementById('showMap'), {
+//      zoom: 7,
+//      center: showLat
+//    });
+  // directionsDisplay.setMap(map3);
 
- function calculateAndDisplayRoute(directionsService, directionsDisplay) {
-   directionsService.route({
-     origin: gon.start_address,//document.getElementById('start').value,
-     destination: gon.end_address,//document.getElementById('end').value,
-     travelMode: 'DRIVING'
-   }, function(response, status) {
-     if (status === 'OK') {
-       directionsDisplay.setDirections(response);
-     } else {
-       window.alert('Directions request failed due to ' + status);
-     }
-   });
+   //calculateAndDisplayRoute(directionsService, directionsDisplay);
 
- }
+ // }
+
+ // function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+ //   directionsService.route({
+ //     origin: gon.start_address,//document.getElementById('start').value,
+ //     destination: gon.end_address,//document.getElementById('end').value,
+ //     travelMode: 'DRIVING'
+ //   }, function(response, status) {
+ //     if (status === 'OK') {
+ //       directionsDisplay.setDirections(response);
+ //     } else {
+ //       window.alert('Directions request failed due to ' + status);
+ //     }
+ //   });
+ // }
+
+
 initMap();
 </script>

@@ -5,7 +5,7 @@ class DashboardController < ApplicationController
     @dashboard = current_user
     @spots = current_user.spots
     @availabilities = Availability.all
-    
+
 
     GoogleMapsService.configure do |config|
       config.key = ENV["MAPS"]
@@ -33,6 +33,8 @@ class DashboardController < ApplicationController
   end
 
   def show
+    @spots = current_user.spots
+
     GoogleMapsService.configure do |config|
       config.key = ENV["MAPS"]
       config.retry_timeout = 20
@@ -47,6 +49,7 @@ class DashboardController < ApplicationController
     gon.end_address = @routes[0][:legs][0][:end_address]
     gon.center_lat = @routes[0][:legs][0][:start_location][:lat]
     gon.center_lng = @routes[0][:legs][0][:start_location][:lng]
+    
   end
 
   end
