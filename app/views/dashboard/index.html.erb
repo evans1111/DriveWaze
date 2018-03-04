@@ -1,85 +1,109 @@
+<%= render "menubar" %>
 <div class="dashbackground">
-  <%= render "menubar" %>
+
   <!-- section 1 -->
-  <div class="container">
-    <div class="dashsection1">
-      <h3>DriveWaze</h3>
-      <h5>Welcome, <%= current_user.name %>!</h5><br>
-      <%= image_tag('car.png') %>
-    </div>
-  </div>
-<div id="mapDash"></div>
-  <div class="row">
-    <div class="col s6" id="left">
-      <div class="card">
-        <div class="card-content">
-          <h5>Your bookings</h5>
-          <%= link_to "Park Now", spots_path, id: "", class: "waves-effect btn #ef6c00 orange darken-3" %>
-        </div>
-      </div>
-    </div>
+<div class="container">
 
-    <div class="col s6" id="right">
-      <div class="card">
-        <div class="card-content">
-          <h5>Become A Host</h5>
-          <%= link_to 'Add Location', new_spot_path, class: "waves-effect btn #42a5f5 blue lighten-1" %>
-        </div>
-      </div>
-    </div>
+</div>
+    <div class="row">
 
-          <h5>Your Hosted Parking Spots</h5>
-          <% @spots.each_with_index do |spot, i| %>
-            <% if spot.user_id == current_user.id %>
-              <div class="card">
-                <div class="card-image">
-                <div class="card-content">
-                  <h4><%= spot.street %></h4>
-                  <p><%= spot.city %></p>
-                  <p><%= spot.zip %></p>
-                  <p><%= spot.price %></p>
-                  <p><%= spot.description %></p>
-                    <% spot.availabilities.each do |x| %>
-                      <% if x != nil %>
-                        <p>Available from: <%= x.start_time %></p>
-                        <p>Until<%= x.end_time %></p>
-                      <% else %>
-                        <p>This parking spot has no availabilities yet.</p>
-                      <% end %>
-                  <% end %>
-                <% end  %>
+      <!-- DESKTOP VIEW (Sidebar) -->
+      <div class="hide-on-small-only">
+        <div class="row">
+          <div class="col s3" id="dashboard-sidebar">
 
-                </div>
-                <div class="card-action" id="hosting-spots-card">
-                  <%= link_to "Availability", new_spot_availability_path(spot), class:"waves-effect btn #42a5f5 blue lighten-1", id:"dashboard-hosting-button" %>
-                  <%= link_to "Edit your spot", edit_spot_path(spot), :method => :update, class: "waves-effect btn #ff3d00 deep-orange accent-3", id:"dashboard-hosting-button" %>
-                  <%= link_to "Delete", spot_path(spot), :method => :delete, class: "waves-effect btn #ff3d00 deep-orange accent-3", id:"dashboard-hosting-button" %>
+            <!-- Sidebar panel -->
+              <div class="dashboard-welcome">
+                <div class="dashboard-welcome-content">
+                  <h5>Welcome, <%= current_user.name %>!</h5>
+                  <p><%= current_user.email %></p>
+                  <p>508-333-1234</p>
                 </div>
               </div>
+              <div class="dash-sidebar-links">
+                <a href="/spots", class="waves-effect btn #ef6c00 orange darken-3", id="become-host-button"><i class="small material-icons">directions_car</i>Park Now</a>
+                <a href="/spots/new", class="waves-effect btn #42a5f5 blue lighten-1", id="become-host-button"><i class="small material-icons">add_location</i>Become A Host</a><br>
+                <li><a class="dash-sublinks" href="#">Earnings</a></li>
+                <li><a class="dash-sublinks" href="#">Refer A Friend</a></li>
+                <li><a class="dash-sublinks" href="#">Support</a></li>
+              </div>
+          </div>
+
+          <div class="col s9">
+            <!-- Page content  -->
+            <div class="container" id="dash-container">
+              <div class="row">
+                <div class="col s8">
+                  <div id="mapDash"></div>
+                </div>
+                <div class="col s4">
+                  <div class="dash-reservations">
+                    <h5>Your Reservations</h5>
+                  </div>
+                </div>
+              </div>
+
+
+            <%if current_user.spots.empty? %>
+              <h5>You don't currently host any parking spots.</h5>
+              <p>Hosting is easy. Click here to sign up!</p>
+            <% else %>
+              <h5>Your Hosted Parking Spots</h5>
+              <% @spots.each_with_index do |spot, i| %>
+                <% if spot.user_id == current_user.id %>
+                  <div class="card">
+                    <div class="card-content">
+                      <h4><%= spot.street %></h4>
+                      <p><%= spot.city %></p>
+                      <p><%= spot.zip %></p>
+                      <p><%= spot.price %></p>
+                      <p><%= spot.description %></p>
+                      <% spot.availabilities.each do |x| %>
+                        <p>Available from: <%= x.start_time %></p>
+                        <p>Until<%= x.end_time %></p>
+                      <% end %>
+                    </div>
+                <% end  %>
+                    <div class="card-action" id="hosting-spots-card">
+                      <%= link_to "Availability", new_spot_availability_path(spot), class:"waves-effect btn #42a5f5 blue lighten-1", id:"dashboard-hosting-button" %>
+                      <%= link_to "Edit your spot", edit_spot_path(spot), :method => :update, class: "waves-effect btn #ff3d00 deep-orange accent-3", id:"dashboard-hosting-button" %>
+                      <%= link_to "Delete", spot_path(spot), :method => :delete, class: "waves-effect btn #ff3d00 deep-orange accent-3", id:"dashboard-hosting-button" %>
+                    </div>
+                  </div>
+              <% end %>
             <% end %>
-
-
-    </div>
-  </div>
-
-  <!-- section 2 -->
-  <div class="dashsection2">
-    <div class="row">
-      <div class="col s12 m7">
-
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- section 3 -->
 
-    <div class="dashsection3">
+
+      <!-- MOBILE VIEW (No Columns) -->
+      <div class="hide-on-med-and-up">
+        <div class="card">
+          <div class="card-content">
+            <h5>Your bookings</h5>
+              <%= link_to "Park Now", spots_path, id: "", class: "waves-effect btn #ef6c00 orange darken-3" %>
+          </div>
+        </div>
+
+
+        <div>
+          <div class="card">
+            <div class="card-content">
+              <h5>Become A Host</h5>
+              <%= link_to 'Add Location', new_spot_path, class: "waves-effect btn #42a5f5 blue lighten-1" %>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
     </div>
-  </div>
-  <!-- <script
-    src="https://maps.googleapis.com/maps/api/js?&callback=initialize">
-    </script> -->
+
+
+
     <script type="text/javascript">
       initialize()
     </script>
