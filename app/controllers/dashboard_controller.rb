@@ -24,15 +24,16 @@ class DashboardController < ApplicationController
         #translates to latitude/long
         results = gmaps.geocode(query)
         #parse data
-        results[0][:geometry][:location].values
+
+        # Requires real addresses for host locations
+        # results[0][:geometry][:location].values
         end
       end
-
-
 
   end
 
 
-private
+  private
+
 
 end

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   delete 'spot/:id' => 'spots#destroy'
   devise_for :users
   root 'home#index'
-  post 'spots/new' => 'spots#create'
+  # post 'spots/new' => 'spots#create'
 
   resources :bookings
   resources :users, only: [:show]
