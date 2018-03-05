@@ -2,12 +2,13 @@ Rails.application.routes.draw do
   post 'spots/:id/edit' => 'spots#edit'
   delete 'spot/:id' => 'spots#destroy'
   devise_for :users
-  
+
   get 'dashboard/index' => 'dashboard#index'
 
   root 'home#index'
   post 'spots/new' => 'spots#create'
-  get 'dashboard/show' => 'dashboard#show'
+  resources :dashboard
+  get 'dashboard/:id/show' => 'dashboard#show'
   resources :bookings
   resources :users, only: [:show]
   resources :spots do

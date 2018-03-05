@@ -6,12 +6,15 @@
 <div id="showMap" style="height: 500px">
 
 </div>
-
+<%= @spot_ids %>
 
 <script type="text/javascript">
 var showLat;
+var directions = document.getElementById("Directions")
+
 
 function initMap() {
+
   var directionsService = new google.maps.DirectionsService;
   var directionsDisplay = new google.maps.DirectionsRenderer;
     if (navigator.geolocation) {
@@ -24,7 +27,7 @@ function showPosition(position) {
   showLat = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
   var options = {
-    zoom: 13,
+    zoom: 10,
     center: showLat
   }
   var map3 = new google.maps.Map(document.getElementById('showMap'), options)
@@ -40,7 +43,7 @@ calculateAndDisplayRoute(directionsService, directionsDisplay);
 function calculateAndDisplayRoute(directionsService, directionsDisplay) {
   directionsService.route({
     origin: showLat,//document.getElementById('start').value,
-    destination: '49 sw 11th st',//document.getElementById('end').value,
+    destination: gon.current_street,//document.getElementById('end').value,
     travelMode: 'DRIVING'
   }, function(response, status) {
     if (status === 'OK') {

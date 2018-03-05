@@ -78,7 +78,7 @@
                       <% end %>
                       <%= link_to "Edit your spot", edit_spot_path(spot), :method => :update, class: "", id:"dashboard-hosting-button" %>
                       <%= link_to spot_path(spot), :method => :delete, class: "", id:"dashboard-delete-button" do %>
-                      <%= link_to "Directions", dashboard_show_path(spot) %>
+                      <%= link_to "Directions", dashboard_path(spot), id: "Directions" %>
                         Remove<i class="small material-icons">delete</i>
                       <% end %>
                     </div>
