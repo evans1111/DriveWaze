@@ -1,0 +1,49 @@
+<script type="text/javascript">
+  initMap();
+</script>
+
+<div class="container">
+  <div class="mobile-header-section">
+    <h4 class="page-header">Available Parking</h4>
+    <p class="page-subheader">Select a place to park or search by zipcode.</p>
+
+    <%= form_tag(spots_path, method: :get) do %>
+      <%= text_field_tag :zip, nil, placeholder: "Search Zip Codes", :maxlength => 5 %>
+      <%= submit_tag 'Search', class: "btn #42a5f5 blue lighten-1", id: "search-button" %>
+    <% end %>
+  </div>
+
+    <% unless @spots.nil? %>
+      <% @spots.each_with_index do |spot, i| %>
+        <div class="card">
+          <div class="card-image">
+            <div class= "gmap" id="map<%= i %>"></div>
+
+          </div>
+          <div class="card-content">
+            <h4><%= spot.street %></h4>
+            <p class="spot-info">Description: <%= spot.description %></p>
+            <p class="spot-info">City: <%= spot.city %></p>
+            <p class="spot-info">Zip: <%= spot.zip %></p>
+            <p class="spot-info">$<%= spot.price %>.00/hr</p>
+          </div>
+          <div class="card-action" id="available-times">
+            <% spot.availabilities.each do |avail| %>
+              <% if avail.avialable %>
+                <div class="time-select">
+                  <h6><%= avail.time_range%></h6>
+                  <%= link_to 'Book', bookings_path(availability_id: avail.id), class: "waves-effect btn #757575 grey darken-1", method: :post%>
+
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+
+        </div>
+      <% end  %>
+    <% end  %>
+
+</div>
+
+
+<%= paginate @spots %>

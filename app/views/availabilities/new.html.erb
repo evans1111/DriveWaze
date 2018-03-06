@@ -1,0 +1,22 @@
+<div class="container">
+
+<h1>Create Your Availabilities</h1>
+
+<%= form_for [@spot, @availability] do |f| %>
+  <div class="field">
+    <p>
+      <%= f.label 'Start Time' %>
+      <%= f.time_field :to, class: 'timepicker' %>
+    </p>
+  </div>
+
+  <div class="field">
+    <p>
+      <%= f.label 'End Time' %>
+      <%= f.time_field :from, class: 'timepicker' %>
+    </p>
+  </div>
+
+  <%= f.submit "Submit", class:"waves-effect btn #ef6c00 orange darken-3" %>
+  <% end  %>
+</div>

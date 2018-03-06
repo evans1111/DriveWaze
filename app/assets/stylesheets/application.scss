@@ -5,10 +5,20 @@ html, body {
   font-weight: 300;
   margin-top: -1vh;
 }
+/* General Page Styling Info */
+.page-subheader {
+  font-size: 20px;
+  color: #787878;
+}
+.mobile-header-section {
+  text-align: center;
+}
+
 /* Navigation */
 nav {
-  background-color: rgba(0,0,0,0.45);
+  background-color: rgba(0,0,0,0.65);
   height: 12vh;
+  box-shadow: none;
 }
 
 .nav-wrapper {
@@ -89,7 +99,7 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
 /* Home Page Section 3 (Testimonials) */
 .section3 {
   position: relative;
-  height: 1100px;
+  height: 925px;
   width: 100vw;
   background-color: #1B9CE5;
   color: #ffffff;
@@ -146,7 +156,7 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
 
 /* Home Page Map Section */
 .map-section {
-  height: 800px;
+  height: 600px;
   width: 100%;
   text-align: center;
 }
@@ -159,10 +169,19 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
 }
 #gmap-home {
   margin: 1rem 0rem;
+  width: 90%;
 }
 
 
 /* End Home Page Map Section */
+
+/* Footer */
+
+.page-footer {
+  background-color: rgba(0,0,0,0.45);
+}
+
+/* End Footer */
 
 /* Login page */
 .login-form {
@@ -172,110 +191,176 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
   margin: 1rem 0rem;
 }
 
-@media screen and (min-width: 768px) {
-  #parkbutton{
-    width: 16%;
-    font-weight: bold;
-  }
-  .headline{
 
-  }
-  .background-image {
-    height: 482px;
-  }
+/* Dashboard */
 
-element.style {
-    display: flex;
+.dashbackground {
+  background-color: #fff;
 }
-.icon1, .icon2, .icon3{
-  margin-top: -20px;
-  margin-left: 123px;
-}
-.process{
-  margin-top:-20px;
-  margin-left:-300px;
-  // font-weight: 700;
-  // font-weight: bold;
-}
-h3 {
-  font-weight: bold;
-  margin-left:-300px;
-  }
-.section2{
-  margin-left: 113px;
-}
-.arrow{
-  visibility: hidden;
-}
-nav ul a{
-  font-size: 30px;
-}
-nav ul a:hover{
-  opacity:0.6;
-  margin-top: 2px;
-}
-#parkbutton:hover{
- -webkit-transform: rotate(-7deg);
- -moz-transform: rotate(-7deg);
- -o-transform: rotate(-7deg);
-}
-h1{
-  font-family: cardo;
-  text-shadow: 0.07em 0.07em 0 rgba(0, 0, 0, 0.5);
-  font-style: italic;
-  font-size: 5.2rem;
-}
-.section3{
-  margin-top:-886px;
-  height: 400px;
-}
-#testimonial-headline{
-  padding-left: 330px;
-  margin-top: -85px;
+.dash-search-bar {
+  margin: 1rem 1rem;
+  width: 70%;
+  text-align: center;
 }
 
-.map-section{
-  margin-top:auto;
-  margin-bottom:auto;
-  // margin-top: -23px;
-  // margin-bottom: -313px;
+.dashboard-welcome {
+  border-bottom: 2px solid #ccc;
+  height: 20%;
+  width: 100%;
+  display: inline-block;
+  position: relative;
+  float: left;
 }
-#parkbutton2{
-  height: 4rem;
-  width: 15%;
-  margin: 0 auto;
-  margin-bottom: 5rem;
-  font-size: 24px;
-  padding-top: 0.7rem;
-  margin-left: -282px;
-  margin-top:  158px;
+.dashboard-welcome-content {
+  padding: 1rem;
+  width:  50%;
+  display: inline-block;
 }
-#parkbutton2:hover{
- -webkit-transform: rotate(-7deg);
- -moz-transform: rotate(-7deg);
- -o-transform: rotate(-7deg);
+#dashboard-delete-button {
+  width: 32%;
+  color: #ef6c00;
+  float: right;
+  font-size: 18px;
 }
-#map-section-subheadline{
-  font-size: 39px;
+#dashboard-hosting-button {
+  width: 32%;
+  border: 1px solid #ccc;
+  color: #222;
+  padding: 0.5rem;
 }
-  #map-section-headline{
-    margin-left: 89px;
+#hosting-spots-card {
+  padding: 16px 10px;
+}
+.dash-sidebar-links {
+  list-style: none;
+  padding: 1rem;
+}
+.small.material-icons {
+  float: left;
+}
+#dashboard-sidebar {
+  height: 100vh;
+  padding: 0;
+  min-width: 270px;
 
-  }
-  .testimonial-photo{
-    border: 2px solid #fff;
-  }
-  .testimonial-text{
-    margin-top: -14px;
-    margin-bottom: 62px;
-  }
-  .testimonial-photo{
-    margin-top: -38px;
-  }
-  .testimonial-stars{
-    margin-top: -14px;
-  }
-  .testimonial-name{
-    margin-top: -53px;
-  }
+  -webkit-box-shadow: 10px 10px 29px -8px rgba(119,119,119,1);
+  -moz-box-shadow: 10px 10px 29px -8px rgba(119,119,119,1);
+  box-shadow: 10px 10px 29px -8px rgba(119,119,119,1);
+}
+#sidebar-container {
+  text-align: left;
+}
+#become-host-button {
+  height: 3rem;
+  width: 100%;
+  margin: 1rem 0rem;
+  padding-top: 0.3rem;
+  min-width: 200px;
+}
+.dash-sublinks {
+  list-style: none;
+  font-size: 16px;
+  color: #222;
+  font-weight: 800;
+  line-height: 3rem;
+}
+body > div.dashbackground > div.row > div > div > div.col.s9 {
+  width: 70%;
+}
+#dash-container {
+  width: 90%;
+}
+.refer-a-friend {
+  padding: 0.5rem;
+}
+.card.small {
+  height: 275px;
+}
+.dashboard-user-photo {
+  float: right;
+  height: 8rem;
+  width: 8rem;
+  border-radius: 100%;
+  border: 1px solid #ccc;
+  display: inline-block;
+  position: relative;
+  margin: 1rem 1rem;
+}
+.dashboard-user-photo > p {
+  margin: 2.2rem;
+  text-align: center;
+  font-size: 13px;
+  color: #ccc;
+}
+.modal.modal-fixed-footer {
+  height: 80vh;
+}
+.modal {
+  max-height: 100%;
+}
+input, input.focus {
+  -webkit-box-shadow: none;
+  border-bottom: none;
+  box-shadow: none;
+}
+#spot_street:active, #spot_street:focus, #spot_zip:active, #spot_zip:focus, #spot_city:active,
+#spot_city:focus, #spot_price:active, #spot_price:focus, #spot_description:active, #spot_description:focus{
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-bottom: 1px solid #1FA0FC;
+}
+
+
+/* End Dashboard Styling */
+
+
+/* Feed Page */
+.spot-info {
+  font-size: 20px;
+  color: #787878;
+}
+input#zip {
+  width: 50%;
+  border: 1px solid #9e9e9e;
+  border-radius: 20px;
+  height: 48px;
+  font-size: 22px;
+  box-shadow: none;
+  padding: 0rem 1rem;
+}
+#search-button {
+  border-radius: 20px;
+  height: 44px;
+  margin-bottom: 1vh;
+}
+#available-times {
+  display: inline-flex;
+}
+.time-select {
+  margin: 0rem 0.5rem;
+  text-align: center;
+}
+
+
+/* Pagination */
+.pagination {
+  text-align: center;
+  background-color: #1B9CE5;
+  padding-top: 1rem;
+}
+.page, .first, .prev, .next, .last {
+  font-size: 20px;
+}
+/* Google Map */
+.gmap {
+  height: 200px;
+}
+#mapDash {
+  height: 40vh;
+  width: 100%;
+  margin-top: 1rem;
+  border: 1px solid #ccc;
+}
+.dash-reservations {
+  margin-top: 4rem;
 }

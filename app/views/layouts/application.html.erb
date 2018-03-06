@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>DriveWaze</title>
-
+    <%= include_gon %>
 
       <!-- Compiled and minified CSS -->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
@@ -18,16 +18,17 @@
       <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
 
 
-
       <link rel="stylesheet" href="./assets/home.scss">
 
-      <script type="text/javascript" src= "./assets/home.js"></script>
+
+      <script src="app/assets/dashboard.js"></script>
+
 
   <%= csrf_meta_tags %>
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
+<!-- Embedded google map -->
   <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=<%="#{ENV["MAPS"]}"%>&callback=initMap">
     </script>
@@ -36,6 +37,7 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    <%= render "menubar" %>
     <%= yield %>
 
 

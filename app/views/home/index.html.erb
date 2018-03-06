@@ -1,11 +1,11 @@
 
 <div class="background-image">
-  <%= render "menubar" %>
   <div class="headline">
     <h1>DriveWaze</h1>
     <h4 id="subheadline">Find an easy and affordable place to park hosted by community locals.</h4>
-    <a id="parkbutton" class="waves-effect btn #ef6c00 orange darken-3">park now</a><br>
-    <div class="arrow"><%= image_tag("white-down-arrow.png") %></div>
+    <%= link_to "Park Now", spots_path, id: "parkbutton", class: "waves-effect btn #ef6c00 orange darken-3" %><br>
+
+    <%= image_tag("white-down-arrow.png") %>
   </div>
 
 </div>
@@ -50,13 +50,43 @@
 </div>
 
 <div class="map-section">
-  <h3 id="map-section-headline">Plentifull Parking</h3>
-  <p id="map-section-subheadline">With DriveWaze, there's always parking available.</p>
+  <h4 id="map-section-headline">Plentifull Parking</h4>
+  <p id="map-section-subheadline">There's always parking available with DriveWaze.</p>
   <iframe id="gmap-home"
     width="370"
     height="370"
     frameborder="0" style="border:0"
+<<<<<<< HEAD
     src= "https://www.google.com/maps/embed/v1/search?key=<%="#{ENV["EMBED_API"]}"%>&q=parking+lots+in+Miami">
 </iframe>
   <a id="parkbutton2" class="waves-effect btn #ef6c00 orange darken-3">park now</a><br>
+=======
+    src= "https://www.google.com/maps/embed/v1/search?key=<%="#{ENV["EMBED_API"]}" %>&q=parking+lots+in+Miami">
+</iframe><br>
+<%= link_to "Park Now", spots_path, class: "waves-effect btn #ef6c00 orange darken-3" %>
+  <!-- <a id="parkbutton" class=>park now</a><br> -->
+>>>>>>> alex
 </div>
+
+<footer class="page-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">DriveWaze</h5>
+                <p class="grey-text text-lighten-4">Easy and affordable parking</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="#!">About</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Contact</a></a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Legal info</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2018 DriveWaze
+            </div>
+          </div>
+        </footer>

@@ -1,0 +1,16 @@
+<%= render "menubar" %>
+<div class="container">
+  <h3>Your Reserved Parking Spots</h3>
+
+  <div class="dash-reservations">
+    <% current_user.bookings.each do |booking| %>
+      <li>
+      <%= booking.availability.start_time %> - <%= booking.availability.end_time %>
+      <%= booking.availability.spot.street %>
+      <%= booking.availability.spot.city %>
+      <%= link_to 'Get Directions' %>
+
+      </li>
+    <% end %>
+  </div>
+</div>
