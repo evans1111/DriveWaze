@@ -1,4 +1,11 @@
 <div class="dashbackground">
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <%= render 'spots/form' %>
+    </div>
+
+  </div>
 
 
     <div class="row">
@@ -16,7 +23,8 @@
               </div>
               <div class="dash-sidebar-links">
                 <a href="/spots", class="waves-effect btn #ef6c00 orange darken-3", id="become-host-button"><i class="small material-icons">directions_car</i>Park Now</a>
-                <a href="/spots/new", class="waves-effect btn #42a5f5 blue lighten-1", id="become-host-button"><i class="small material-icons">add_location</i>Become A Host</a><br>
+                <a class="waves-effect btn #42a5f5 blue lighten-1 modal-trigger" href="#modal1", id="become-host-button"><i class="small material-icons">add_location</i>Become A Host</a>
+
                 <li><a class="dash-sublinks" href="/bookings">Bookings</a></li>
                 <li><a class="dash-sublinks" href="#">Earnings</a></li>
                 <li><a class="dash-sublinks" href="#">Refer A Friend</a></li>
@@ -50,16 +58,24 @@
                     <h5>Your Reserved Parking Spots</h5>
                     <div class="dash-reservations">
                       <% current_user.bookings.each do |booking| %>
-                        <li>
-                          <%= booking.availability.to.strftime("%I:%M %p") %> - <%= booking.availability.from.strftime("%I:%M %p") %>
-                          <%= booking.availability.spot.street %>
-                          <%= booking.availability.spot.city %>
-                          <%= link_to 'Get Directions' %>
-                        </li>
-                        <li>You have <%= booking.time_left %> left on your parking reservation!</li>
-                        <% end %>
-                      </div>
-                  <% end %>
+                        <div class="card horizontal">
+                          <div class="card-content">
+                            <li>
+                              <%= booking.availability.to.strftime("%I:%M %p") %> - <%= booking.availability.from.strftime("%I:%M %p") %>
+                              <%= booking.availability.spot.street %>
+                              <%= booking.availability.spot.city %>
+                              <%= link_to 'Get Directions' %>
+                            </li>
+                            <li>You have <%= booking.time_left %> left on your parking reservation!</li>
+                            <% end %>
+                          </div>
+                      <% end %>
+                          </div>
+
+                        </div>
+
+                        </div>
+
 
                   <!-- Display hosted locations if user is a host -->
                   <%if current_user.spots.empty? %>
