@@ -44,6 +44,7 @@
                   <!-- Reserved Parking Spots -->
                   <%if current_user.bookings.empty? %>
                     <h5>No reserved parking spots.</h5>
+                    <div id="datetime"></div>
                     <p>Find convenienet & affordable parking <a href="/spots">here!</a></p>
                   <% else %>
                     <h5>Your Reserved Parking Spots</h5>
