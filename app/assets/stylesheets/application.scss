@@ -22,11 +22,11 @@ nav {
 }
 
 .nav-wrapper {
-  transition: 0.2s all linear;
+    transition: 0.2s all linear;
 }
 
 .nav-wrapper.alt-color {
-  background-color: #000;
+    background-color: #000;
 }
 
 /* hamburger menu icon */
@@ -107,15 +107,15 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
 
   &:before,
   &:after {
-    background: inherit;
-    content: '';
-    display: block;
-    height: 50%;
-    left: 0;
-    position: absolute;
-    right: 0;
-    z-index: -1;
-    -webkit-backface-visibility: hidden; // for Chrome Windows
+  background: inherit;
+  content: '';
+  display: block;
+  height: 50%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  z-index: -1;
+  -webkit-backface-visibility: hidden; // for Chrome Windows
   }
   &:before {
     top: 0;

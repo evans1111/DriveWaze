@@ -216,12 +216,3 @@ puts "Running `rails db:seed` is idempotent. Running more than once will not add
 User.all.each do |user|
   puts "user email: #{user.email} user password: #{password}"
 end
-
-
-
-
-[
-    'https://api.flickr.com/services/feeds/photos_public.gne?tags=',
-    'search term',
-    '&format=json&jsoncallback=?',
-]
