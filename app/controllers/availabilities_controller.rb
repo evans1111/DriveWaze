@@ -25,6 +25,6 @@ class AvailabilitiesController < ApplicationController
 
   private
   def availablility_params
-    params.require(:availability).permit(:start_time, :end_time, :spot_id)
+    params.require(:availability).permit(:to, :from, :spot_id)
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180304155603) do
+ActiveRecord::Schema.define(version: 20180306005353) do
 
   create_table "availabilities", force: :cascade do |t|
     t.integer "times"
@@ -18,10 +18,12 @@ ActiveRecord::Schema.define(version: 20180304155603) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "time_slot", default: "--- []\n"
-    t.string "avails"
+    t.time "time"
     t.string "start_time"
     t.string "end_time"
     t.boolean "avialable", default: true
+    t.datetime "to"
+    t.datetime "from"
     t.index ["spot_id"], name: "index_availabilities_on_spot_id"
   end
 

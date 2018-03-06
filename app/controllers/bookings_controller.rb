@@ -14,4 +14,13 @@ class BookingsController < ApplicationController
     end
   end
 
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    respond_to do |format|
+      format.html { redirect_to dashboard_index_path, notice: 'Task was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
 end

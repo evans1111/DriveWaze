@@ -65,6 +65,8 @@
                           <%= booking.availability.spot.street %>
                           <%= booking.availability.spot.city %>
                           <%= link_to 'Get Directions' %>
+                          <%= link_to 'Cancel Booking', booking, method: :delete, data: { confirm: 'Are you sure?' } %>
+
                         </li>
                         <% end %>
                       </div>

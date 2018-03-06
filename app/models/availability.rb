@@ -3,6 +3,10 @@ class Availability < ApplicationRecord
   has_many :bookings
 
   def time_range
-    return "#{self.start_time} - #{self.end_time}"
+    return "#{self.to.hour - 12} - #{self.from.hour - 12}"
   end
+
+
+
+
 end
