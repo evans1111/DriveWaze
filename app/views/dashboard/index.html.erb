@@ -57,17 +57,24 @@
                     <p>Find convenienet & affordable parking <a href="/spots">here!</a></p>
                   <% else %>
                     <h5>Your Reserved Parking Spots</h5>
-
                     <div class="dash-reservations">
                       <% current_user.bookings.each do |booking| %>
                         <li>
-                          <%= booking.availability.start_time %> - <%= booking.availability.end_time %>
+                          <%= booking.availability.to.strftime("%I:%M %p") %> - <%= booking.availability.from.strftime("%I:%M %p") %>
                           <%= booking.availability.spot.street %>
                           <%= booking.availability.spot.city %>
                           <%= link_to 'Get Directions' %>
                           <%= link_to 'Cancel Booking', booking, method: :delete, data: { confirm: 'Are you sure?' } %>
-
                         </li>
+                        <li>
+                          <%= booking.availability.from - Time.now %>
+                        </li>
+                        <li>
+                          <%#= Time.now.strftime("%I:%M %p") %>
+                          <%= Time.now %>
+                        </li>
+
+                        <div id="datetime"></div>
                         <% end %>
                       </div>
                   <% end %>
@@ -88,8 +95,8 @@
                             <p><%= spot.price %></p>
                             <p><%= spot.description %></p>
                             <% spot.availabilities.each do |x| %>
-                              <p>Available from: <%= x.start_time %></p>
-                              <p>Until<%= x.end_time %></p>
+                              <p>Available from: <%= x.to.strftime("%I:%M %p") %></p>
+                              <p>Until: <%= x.from.strftime("%I:%M %p") %></p>
                             <% end %>
                           </div>
                       <% end  %>
