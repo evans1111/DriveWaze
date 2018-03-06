@@ -37,13 +37,12 @@ class SpotsController < ApplicationController
     end
   end
 
-  #AJAX ?
-  @spot = Spot.new
 
 
   def new
     # @spot = current_user.spots.build
     @spot = Spot.new
+    render partial: 'form', locals: { spot: @spot }, layout: false
   end
 
   def create

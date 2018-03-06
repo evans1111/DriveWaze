@@ -18,6 +18,7 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+//= require moment
 var map, map2
       function initMap() {
 
@@ -52,14 +53,7 @@ var map, map2
           })
         }
 };
-
-
-
-
    // map.addListener('turbolinks:load', initMap())
-
-
-// Initialize Map
 
 
 //To place multiple Markers, loop through feed results. Since data is on same domain
@@ -71,6 +65,8 @@ $(document).on('turbolinks:load', function() {
    $(".button-collapse").sideNav(
  );
    console.log("javaScript is working!");
+   $('.modal').modal();
+   //$('#modal1').modal('open');
 });
 
 // scrolling effect

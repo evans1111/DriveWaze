@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   root 'home#index'
   # post 'spots/new' => 'spots#create'
   get 'dashboard/index'
+  post '/spots/new' => 'spots#create'
+
+
+
 
   resources :bookings
   resources :users, only: [:show]

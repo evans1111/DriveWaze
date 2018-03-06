@@ -30,6 +30,8 @@ class DashboardController < ApplicationController
         end
       end
 
+      @spot = Spot.new
+
   end
 
 

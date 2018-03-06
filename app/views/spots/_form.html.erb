@@ -1,32 +1,39 @@
+<!-- Modal Trigger -->
 
-<%= form_with model: @spot, remote: true do |form| %>
 
-  <div class="field">
-    <%= form.label :street %>
-    <%= form.text_field :street, id: :spot_street, :required => 'required' %>
+<div class="container">
+    <h5>Enter the parking location information</h5>
+
+    <%= form_with model: @spot, remote: true, url: spots_path do |form| %>
+
+      <div class="field">
+        <%= form.label :street %>
+        <%= form.text_field :street, id: :spot_street, :required => 'required' %>
+      </div>
+
+      <div class="field">
+        <%= form.label :zip %>
+        <%= form.text_field :zip, id: :spot_zip, :required => 'required' %>
+      </div>
+
+      <div class="field">
+        <%= form.label :city %>
+        <%= form.text_field :city, id: :spot_city, :required => 'required' %>
+      </div>
+
+      <div class="field">
+        <%= form.label 'Set Your Hourly Rate' %>
+        <%= form.text_field :price, id: :spot_price, :required => 'required' %>
+      </div>
+
+      <div class="field">
+        <%= form.label :description %>
+        <%= form.text_field :description, id: :spot_description %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit "Add Parking Location", class: "waves-effect btn #ef6c00 orange darken-3" %>
+      </div>
+      <% end %>
   </div>
-
-  <div class="field">
-    <%= form.label :zip %>
-    <%= form.text_field :zip, id: :spot_zip, :required => 'required' %>
-  </div>
-
-  <div class="field">
-    <%= form.label :city %>
-    <%= form.text_field :city, id: :spot_city, :required => 'required' %>
-  </div>
-
-  <div class="field">
-    <%= form.label 'Set Your Hourly Rate' %>
-    <%= form.text_field :price, id: :spot_price, :required => 'required' %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description, id: :spot_description %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit "Submit", class: "waves-effect btn #ef6c00 orange darken-3" %>
-  </div>
-<% end %>
+</div>
