@@ -4,6 +4,7 @@ class DashboardController < ApplicationController
   def index
     @dashboard = current_user
     @spots = current_user.spots
+    @bookings = current_user.bookings
     @availabilities = Availability.all
 
 

@@ -1,166 +1,68 @@
 <div class="dashbackground">
+
   <!-- Modal Structure -->
   <div id="modal1" class="modal">
     <div class="modal-content">
       <%= render 'spots/form' %>
     </div>
-
   </div>
 
+  <div class="row">
+    <!-- DESKTOP VIEW (Sidebar) -->
+    <div class="hide-on-small-only">
+      <div class="row">
+        <!-- Sidebar panel -->
+        <%= render 'left_sidebar' %>
 
-    <div class="row">
-      <!-- DESKTOP VIEW (Sidebar) -->
-      <div class="hide-on-small-only">
-         <div class="row">
-          <!-- Sidebar panel -->
-          <div class="col s3" id="dashboard-sidebar">
-              <div class="dashboard-welcome">
-                <div class="dashboard-welcome-content">
-                  <h5>Welcome, <%= current_user.name %>!</h5>
-                  <p><%= current_user.email %></p>
-                  <p><%= current_user.phone_number %></p>
-                </div>
-              </div>
-              <div class="dash-sidebar-links">
-                <a href="/spots", class="waves-effect btn #ef6c00 orange darken-3", id="become-host-button"><i class="small material-icons">directions_car</i>Park Now</a>
-                <a class="waves-effect btn #42a5f5 blue lighten-1 modal-trigger" href="#modal1", id="become-host-button"><i class="small material-icons">add_location</i>Become A Host</a>
-                <li><a class="dash-sublinks" href="/bookings">Bookings</a></li>
-                <li><a class="dash-sublinks" href="#">Earnings</a></li>
-                <li><a class="dash-sublinks" href="#">Refer A Friend</a></li>
-                <li><a class="dash-sublinks" href="#">Support</a></li>
-              </div>
-          </div>
+        <!-- Page content  -->
+        <div class="col s9">
+          <!-- Dashboard Search Bar -->
+          <%= render 'searchbar' %>
 
-          <!-- Page content  -->
-          <div class="col s9">
-            <!-- Dashboard Search Bar -->
-            <div class="dash-search-bar">
-              <h5>Search Parking Near You</h5>
-              <%= form_tag(spots_path, method: :get) do %>
-                <%= text_field_tag :zip, nil, placeholder: "Search Zip Codes", :maxlength => 5 %>
-                <%= submit_tag 'Search', class: "btn #42a5f5 blue lighten-1", id: "search-button" %>
-              <% end %>
-            </div>
+          <!-- Dashboard main content -->
+          <div class="" id="dash-container">
+            <div class="row">
+              <div class="col s8">
+                <div id="mapDash"></div>
 
-            <!-- Dashboard main content -->
-            <div class="" id="dash-container">
-
-              <div class="row">
-                <div class="col s8">
-                  <div id="mapDash"></div>
-
-                  <!-- Reserved Spots Column -->
+                <!-- Reserved Spots Column -->
+                <%if current_user.bookings.empty? %>
                   <div class="col s6" id="reserved-spots">
-                    <%if current_user.bookings.empty? %>
-                      <h5>No reserved parking spots.</h5>
-                      <div id="datetime"></div>
-                      <p>Find convenienet & affordable parking <a href="/spots">here!</a></p>
-                    <% else %>
-                      <h4 class="user-host-title">Your Reserved <br>Parking Spots</h4>
-                      <div class="dash-reservations">
-                        <% current_user.bookings.each do |booking| %>
-                          <div class="card">
-                            <div class="card-content">
-                              <h5>Current Parking</h5>
-                                <p><%= booking.availability.spot.street %></p>
-                                <p><%= booking.availability.spot.description %></p>
-                                <p>Parking Valid Until: </p><%= booking.availability.from.strftime("%I:%M %p") %>
-                            </div>
-                            <div class="card-action">
-                              <%= link_to 'Get Directions' %>
-                              <p>You have <%= booking.time_left %> left on your parking reservation!</p>
-                              <%= link_to 'Cancel Reservation',  booking,  method: :delete, data: { confirm: 'Are you sure you want to cancel?' } %>
-                            </div>
-                            <% end %>
-                        <% end %>
-                            </div>
-                          </div>
+                    <h5>No reserved parking spots.</h5>
+                    <div id="datetime"></div>
+                    <p>Find convenienet & affordable parking <a href="/spots">here!</a></p>
                   </div>
 
-                  <!-- Hosted Spots Column -->
-                  <div class="col s6" id="hosted-spots">
-                    <!-- Display hosted locations if user is a host -->
-                    <%if current_user.spots.empty? %>
-                      <h5>You don't currently host any parking spots.</h5>
-                      <p>Hosting is easy. Click <a href="spots/new">here</a> to become a host!</p>
-                    <% else %>
-                      <h4 class="user-host-title">Your Hosted <br>Parking Spots</h4>
-                      <% @spots.each_with_index do |spot, i| %>
-                        <% if spot.user_id == current_user.id %>
-                          <div class="card">
-                            <div class="card-content">
-                              <h5><%= spot.street %></h5>
-                              <p><%= spot.city %></p>
-                              <p><%= spot.zip %></p>
-                              <p>$<%= spot.price %>.00/hr</p>
-                              <p><%= spot.description %></p>
-                              <p>Availabilities:</p>
-                              <% spot.availabilities.each do |x| %>
-                                <p><%= x.to.strftime("%I:%M %p") %> - <%= x.from.strftime("%I:%M %p") %></p>
-                              <% end %>
-                            </div>
-                        <% end  %>
-                            <div class="card-action" id="hosting-spots-card">
-                              <ul id="hosted-spot-buttons">
-                                <p><%= link_to new_spot_availability_path(spot), class:"", id:"dashboard-hosting-button" do %>
-                                Availability<i class="small material-icons">timer</i>
-                                <% end %></p>
-                                <p><%= link_to edit_spot_path(spot), :method => :update, class: "", id:"dashboard-hosting-button" do %>
-                                  Edit Spot<i class="small material-icons">edit</i>
-                                <% end %></p>
-                                <p><%= link_to spot_path(spot), :method => :delete, class: "", id:"dashboard-delete-button" do %>
-                                  Remove<i class="small material-icons">delete</i>
-                                <% end %></p>
-                              </ul>
-
-                            </div>
-                          </div>
-                      <% end %>
-                    <% end %>
-                  </div>
-                  </div>
-
-
-
-
-
-                <!-- Right Sidebar Content? -->
-                <div class="col s4">
-
-                  <!-- Stripe connect card -->
-                  <div class="card small">
-                    <div class="card-image">
-                      <div id="refer-a-friend">
-                        <%= image_tag("stripe.png") %>
-                      </div>
-                    </div>
-                    <!-- Stripe connect card Content -->
-                    <div class="refer-a-friend">
-                      <h5>Connect with Stripe</h5>
-                      <p>Hosts and users can quickly process payments with Stripe!</p>
+                <% else %>
+                  <div class="col s6" id="reserved-spots">
+                    <h4 class="user-host-title">Your Reserved <br>Parking Spots</h4>
+                    <div class="dash-reservations">
+                      <%= render 'reservation_card'%>
                     </div>
                   </div>
+                <% end %>
 
-                  <!-- Refer a friend -->
-                  <div class="card small">
-                    <div class="card-image">
-                      <div id="refer-a-friend">
-                        <%= image_tag("referAFriend.jpg") %>
-                      </div>
-                    </div>
-                    <!-- Refer a friend Content -->
-                    <div class="refer-a-friend">
-                      <h5>Refer A Friend</h5>
-                      <p>Earn extra cash by becoming a host and referring a friend to do the same!</p>
-                    </div>
-                  </div>
-                </div>
+
+                <!-- Hosted Spots Column -->
+                <div class="col s6" id="hosted-spots">
+                  <!-- Display hosted locations if user is a host -->
+                  <%if current_user.spots.empty? %>
+                  <h5>You don't currently host any parking spots.</h5>
+                  <p>Hosting is easy. Click <a href="spots/new">here</a> to become a host!</p>
+                  <% else %>
+                  <h4 class="user-host-title">Your Hosted <br>Parking Spots</h4>
+                  <%= render 'hosting_card' %>
+                  <% end %>
                 </div>
               </div>
+              <%= render 'right_sidebar' %>
             </div>
+          </div>
         </div>
       </div>
     </div>
+  </div>
+
 
       <!-- MOBILE VIEW (No Columns) -->
       <div class="hide-on-med-and-up">

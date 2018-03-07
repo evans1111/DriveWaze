@@ -1,0 +1,15 @@
+<% current_user.bookings.each do |booking| %>
+  <div class="card">
+    <div class="card-content">
+      <h5>Current Parking</h5>
+        <p><%= booking.availability.spot.street %></p>
+        <p><%= booking.availability.spot.description %></p>
+        <p>Parking Valid Until: </p><%= booking.availability.from.strftime("%I:%M %p") %>
+    </div>
+    <div class="card-action">
+      <%= link_to 'Get Directions' %>
+      <p>You have <%= booking.time_left %> left on your parking reservation!</p>
+      <%= link_to 'Cancel Reservation',  booking,  method: :delete, data: { confirm: 'Are you sure you want to cancel?' } %>
+    </div>
+  <% end %>
+  </div>
