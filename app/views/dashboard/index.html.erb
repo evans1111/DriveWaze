@@ -24,7 +24,6 @@
               <div class="dash-sidebar-links">
                 <a href="/spots", class="waves-effect btn #ef6c00 orange darken-3", id="become-host-button"><i class="small material-icons">directions_car</i>Park Now</a>
                 <a class="waves-effect btn #42a5f5 blue lighten-1 modal-trigger" href="#modal1", id="become-host-button"><i class="small material-icons">add_location</i>Become A Host</a>
-
                 <li><a class="dash-sublinks" href="/bookings">Bookings</a></li>
                 <li><a class="dash-sublinks" href="#">Earnings</a></li>
                 <li><a class="dash-sublinks" href="#">Refer A Friend</a></li>
@@ -44,74 +43,86 @@
             </div>
 
             <!-- Dashboard main content -->
-            <div class="container" id="dash-container">
+            <div class="" id="dash-container">
+
               <div class="row">
                 <div class="col s8">
                   <div id="mapDash"></div>
 
-                  <!-- Reserved Parking Spots -->
-                  <%if current_user.bookings.empty? %>
-                    <h5>No reserved parking spots.</h5>
-                    <div id="datetime"></div>
-                    <p>Find convenienet & affordable parking <a href="/spots">here!</a></p>
-                  <% else %>
-                    <h5>Your Reserved Parking Spots</h5>
-                    <div class="dash-reservations">
-                      <% current_user.bookings.each do |booking| %>
-                        <div class="card horizontal">
-                          <div class="card-content">
-                            <li>
-                              <%= booking.availability.to.strftime("%I:%M %p") %> - <%= booking.availability.from.strftime("%I:%M %p") %>
-                              <%= booking.availability.spot.street %>
-                              <%= booking.availability.spot.city %>
+                  <!-- Reserved Spots Column -->
+                  <div class="col s6" id="reserved-spots">
+                    <%if current_user.bookings.empty? %>
+                      <h5>No reserved parking spots.</h5>
+                      <div id="datetime"></div>
+                      <p>Find convenienet & affordable parking <a href="/spots">here!</a></p>
+                    <% else %>
+                      <h4 class="user-host-title">Your Reserved <br>Parking Spots</h4>
+                      <div class="dash-reservations">
+                        <% current_user.bookings.each do |booking| %>
+                          <div class="card">
+                            <div class="card-content">
+                              <h5>Current Parking</h5>
+                                <p><%= booking.availability.spot.street %></p>
+                                <p><%= booking.availability.spot.description %></p>
+                                <p>Parking Valid Until: </p><%= booking.availability.from.strftime("%I:%M %p") %>
+                            </div>
+                            <div class="card-action">
                               <%= link_to 'Get Directions' %>
-                            </li>
-                            <li>You have <%= booking.time_left %> left on your parking reservation!</li>
+                              <p>You have <%= booking.time_left %> left on your parking reservation!</p>
+                              <%= link_to 'Cancel Reservation',  booking,  method: :delete, data: { confirm: 'Are you sure you want to cancel?' } %>
+                            </div>
                             <% end %>
+                        <% end %>
+                            </div>
+                          </div>
+                  </div>
+
+                  <!-- Hosted Spots Column -->
+                  <div class="col s6" id="hosted-spots">
+                    <!-- Display hosted locations if user is a host -->
+                    <%if current_user.spots.empty? %>
+                      <h5>You don't currently host any parking spots.</h5>
+                      <p>Hosting is easy. Click <a href="spots/new">here</a> to become a host!</p>
+                    <% else %>
+                      <h4 class="user-host-title">Your Hosted <br>Parking Spots</h4>
+                      <% @spots.each_with_index do |spot, i| %>
+                        <% if spot.user_id == current_user.id %>
+                          <div class="card">
+                            <div class="card-content">
+                              <h5><%= spot.street %></h5>
+                              <p><%= spot.city %></p>
+                              <p><%= spot.zip %></p>
+                              <p>$<%= spot.price %>.00/hr</p>
+                              <p><%= spot.description %></p>
+                              <p>Availabilities:</p>
+                              <% spot.availabilities.each do |x| %>
+                                <p><%= x.to.strftime("%I:%M %p") %> - <%= x.from.strftime("%I:%M %p") %></p>
+                              <% end %>
+                            </div>
+                        <% end  %>
+                            <div class="card-action" id="hosting-spots-card">
+                              <ul id="hosted-spot-buttons">
+                                <p><%= link_to new_spot_availability_path(spot), class:"", id:"dashboard-hosting-button" do %>
+                                Availability<i class="small material-icons">timer</i>
+                                <% end %></p>
+                                <p><%= link_to edit_spot_path(spot), :method => :update, class: "", id:"dashboard-hosting-button" do %>
+                                  Edit Spot<i class="small material-icons">edit</i>
+                                <% end %></p>
+                                <p><%= link_to spot_path(spot), :method => :delete, class: "", id:"dashboard-delete-button" do %>
+                                  Remove<i class="small material-icons">delete</i>
+                                <% end %></p>
+                              </ul>
+
+                            </div>
                           </div>
                       <% end %>
-                          </div>
-
-                        </div>
-
-                        </div>
-
-
-                  <!-- Display hosted locations if user is a host -->
-                  <%if current_user.spots.empty? %>
-                    <h5>You don't currently host any parking spots.</h5>
-                    <p>Hosting is easy. Click <a href="spots/new">here</a> to sign up!</p>
-                  <% else %>
-                    <h5>Your Hosted Parking Spots</h5>
-                    <% @spots.each_with_index do |spot, i| %>
-                      <% if spot.user_id == current_user.id %>
-                        <div class="card">
-                          <div class="card-content">
-                            <h4><%= spot.street %></h4>
-                            <p><%= spot.city %></p>
-                            <p><%= spot.zip %></p>
-                            <p><%= spot.price %></p>
-                            <p><%= spot.description %></p>
-                            <p>Availabilities:</p>
-                            <% spot.availabilities.each do |x| %>
-                              <p><%= x.to.strftime("%I:%M %p") %> - <%= x.from.strftime("%I:%M %p") %></p>
-
-                            <% end %>
-                          </div>
-                      <% end  %>
-                          <div class="card-action" id="hosting-spots-card">
-                            <%= link_to new_spot_availability_path(spot), class:"", id:"dashboard-hosting-button" do %>
-                            Availability<i class="small material-icons">timer</i>
-                            <% end %>
-                            <%= link_to "Edit your spot", edit_spot_path(spot), :method => :update, class: "", id:"dashboard-hosting-button" %>
-                            <%= link_to spot_path(spot), :method => :delete, class: "", id:"dashboard-delete-button" do %>
-                              Remove<i class="small material-icons">delete</i>
-                            <% end %>
-                          </div>
-                        </div>
                     <% end %>
-                  <% end %>
-                </div>
+                  </div>
+                  </div>
+
+
+
+
 
                 <!-- Right Sidebar Content? -->
                 <div class="col s4">
@@ -143,10 +154,10 @@
                       <p>Earn extra cash by becoming a host and referring a friend to do the same!</p>
                     </div>
                   </div>
-
                 </div>
+                </div>
+              </div>
             </div>
-          </div>
         </div>
       </div>
     </div>

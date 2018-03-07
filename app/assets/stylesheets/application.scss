@@ -219,17 +219,20 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
 #dashboard-delete-button {
   width: 32%;
   color: #ef6c00;
-  float: right;
   font-size: 18px;
 }
 #dashboard-hosting-button {
-  width: 32%;
-  border: 1px solid #ccc;
+  width: 100%;
   color: #222;
-  padding: 0.5rem;
+  padding: 0.3rem;
+  margin: 2rem 0rem;
 }
 #hosting-spots-card {
   padding: 16px 10px;
+}
+.user-host-title {
+  text-align: center;
+  font-size: 28px;
 }
 .dash-sidebar-links {
   list-style: none;
