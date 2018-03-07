@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20180305204834) do
-=======
 ActiveRecord::Schema.define(version: 20180306005353) do
->>>>>>> 532f4a61be3826005971f7cb220ccd2ee9c7cbbb
 
   create_table "availabilities", force: :cascade do |t|
     t.integer "times"

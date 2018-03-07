@@ -5,10 +5,10 @@
         <p><%= booking.availability.spot.street %></p>
         <p><%= booking.availability.spot.description %></p>
         <p>Parking Valid Until: </p><%= booking.availability.from.strftime("%I:%M %p") %>
-        </p><%= booking.availability.from.strftime("%m/%d/%Y") %></p>
+      </p><%= booking.availability.from.strftime("%m/%d/%Y")%></p>
     </div>
     <div class="card-action">
-      <%= link_to 'Get Directions' %>
+      <%= link_to 'Get Directions', dashboard_path(booking.availability.spot) %>
       <% if booking.time_remaining %>
         <p>You have <%= booking.time_remaining %> left on your parking reservation!</p>
       <% else %>
