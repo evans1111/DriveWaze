@@ -25,15 +25,15 @@
 
       <script src="app/assets/dashboard.js"></script>
 
-
+      <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=<%=ENV["MAPS"]%>&callback=initMap">
+        </script>
   <%= csrf_meta_tags %>
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 <!-- Embedded google map -->
-  <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=<%="#{ENV["MAPS"]}"%>&callback=initMap">
-    </script>
+
 
   </head>
   <body>
