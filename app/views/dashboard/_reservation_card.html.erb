@@ -8,7 +8,7 @@
           </p><%= booking.availability.from.strftime("%m/%d/%Y") %></p>
     </div>
     <div class="card-action">
-      <p><%= link_to '#', class: "", id:"dashboard-hosting-button" do %>
+      <p><%= link_to dashboard_path(booking.availability.spot), class: "", id:"dashboard-hosting-button" do %>
         Get Directions<i class="small material-icons">directions</i>
       <% end %></p>
       <% if booking.time_remaining %>
