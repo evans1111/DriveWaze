@@ -8,7 +8,7 @@ class DashboardController < ApplicationController
 
 
     GoogleMapsService.configure do |config|
-      config.key = ENV["MAPS"]
+      config.key = 'AIzaSyCaOPw-q9E9srNzO8IEiAxiKPLIVnrX0nQ'
       config.retry_timeout = 20
       config.queries_per_second = 10
       gmaps = GoogleMapsService::Client.new
@@ -36,7 +36,7 @@ class DashboardController < ApplicationController
     @spot = Spot.find(params[:id])
     gon.current_street = @spot.street
     GoogleMapsService.configure do |config|
-      config.key = ENV["MAPS"]
+      config.key = 'AIzaSyCaOPw-q9E9srNzO8IEiAxiKPLIVnrX0nQ'
       config.retry_timeout = 20
       config.queries_per_second = 10
     gmaps = GoogleMapsService::Client.new

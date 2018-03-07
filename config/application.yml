@@ -9,5 +9,7 @@
 # production:
 #   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
-EMBED_API: AIzaSyCot-cF6mA-9mkOiOBaFsEwKRcTPJxrZqI
-MAPS: AIzaSyCaOPw-q9E9srNzO8IEiAxiKPLIVnrX0nQ
+EMBED_API: 'AIzaSyCot-cF6mA-9mkOiOBaFsEwKRcTPJxrZqI'
+MAPS: 'AIzaSyCaOPw-q9E9srNzO8IEiAxiKPLIVnrX0nQ'
+Twilio_sid: AC0326b107b2f72cb03da6fca712c3c5b5
+twil_token: 2b77c01d1b2fbd4040cccf903abc4c5c
