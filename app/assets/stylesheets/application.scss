@@ -28,6 +28,10 @@ nav {
 .nav-wrapper.alt-color {
     background-color: #000;
 }
+body > nav > div > div > ul.right.hide-on-med-and-down > li > a {
+  font-size: 20px;
+  padding: 0.5rem;
+}
 
 /* hamburger menu icon */
 nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
@@ -366,4 +370,76 @@ input#zip {
 }
 .dash-reservations {
   margin-top: 1rem;
+}
+
+// Sliding CSS3 Animation
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* ----- MEDIA QUERIES ------ */
+@media only screen and (min-width: 650px) {
+  // Desktop top section
+  .headline {
+    text-align: left;
+    padding: 20vh 30vh;
+    animation: 1.1s ease-out 0s 1 slideInFromLeft;
+  }
+  #subheadline {
+    width: 60%;
+    font-size: 36px;
+  }
+  #parkbutton {
+    min-width: 225px;
+    width: 25%;
+  }
+  #arrow {
+    display: none;
+  }
+  .section2 {
+    text-align: center;
+    height: 85vh;
+  }
+  .icon1, .icon2, .icon3 {
+    display: inline-block;
+    position: relative;
+    width: 25%;
+    margin: 3rem 2rem;
+  }
+  .section3:before, .section3:after {
+    transform: none;
+    transform-origin: 0;
+  }
+  .section3 {
+    height: 75vh;
+  }
+  #testimonial-headline {
+    text-align: center;
+  }
+  #review-slider {
+    height: 35vh!important;
+  }
+  .center {
+    margin-top: 5vh;
+  }
+  .carousel.carousel-slider{
+    margin: 0 auto;
+    width: 40%;
+    padding: 0rem 2rem;
+  }
+  .carousel.carousel-slider .carousel-item p {
+    font-size: 26px;
+  }
+  // Section 4 (map section)
+  #section4 {
+    margin-top: 10vh;
+  }
+  #section4-text {
+    text-align: left;
+  }
 }

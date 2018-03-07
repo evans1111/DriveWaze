@@ -66,6 +66,14 @@ $(document).on('turbolinks:load', function() {
  );
    console.log("javaScript is working!");
    $('.modal').modal();
+
+   $('.carousel.carousel-slider').carousel({fullWidth: true});
+   $('.carousel').carousel('next', 1);
+   autoplay()
+   function autoplay() {
+    $('.carousel').carousel('next');
+    setTimeout(autoplay, 6500);
+}
    //$('#modal1').modal('open');
 });
 
