@@ -1,11 +1,12 @@
 <div class="dashbackground">
 
-  <!-- Modal Structure -->
+  <!-- Modal for creating new hosting spot -->
   <div id="modal1" class="modal">
     <div class="modal-content">
       <%= render 'spots/form' %>
     </div>
   </div>
+
 
   <div class="row">
     <!-- DESKTOP VIEW (Sidebar) -->
@@ -42,6 +43,7 @@
                   </div>
                 <% end %>
 
+
                 <!-- Hosted Spots Column -->
                 <div class="col s6" id="hosted-spots">
                   <!-- Display hosted locations if user is a host -->
@@ -61,6 +63,7 @@
       </div>
     </div>
   </div>
+
 
       <!-- MOBILE VIEW (No Columns) -->
       <div class="hide-on-med-and-up">

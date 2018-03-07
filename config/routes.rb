@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   post '/spots/new' => 'spots#create'
 
 
-
   resources :dashboard
   resources :bookings
   resources :users, only: [:show]

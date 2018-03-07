@@ -15,16 +15,22 @@
   <% end  %>
       <div class="card-action" id="hosting-spots-card">
         <ul id="hosted-spot-buttons">
-          <p><%= link_to new_spot_availability_path(spot), class:"", id:"dashboard-hosting-button" do %>
-          Availability<i class="small material-icons">timer</i>
-          <% end %></p>
+          <a class="modal-trigger" href="#modal2", id="dashboard-hosting-button"><i class="small material-icons">timer</i>Availability</a>
+
           <p><%= link_to edit_spot_path(spot), :method => :update, class: "", id:"dashboard-hosting-button" do %>
             Edit Spot<i class="small material-icons">edit</i>
           <% end %></p>
           <p><%= link_to spot_path(spot), :method => :delete, class: "", id:"dashboard-delete-button" do %>
             Remove<i class="small material-icons">delete</i>
           <% end %></p>
+          <!-- Modal for updating spot availability -->
+          <div id="modal2" class="modal">
+            <div class="modal-content">
+              <%= render 'availabilities/form', :spot => spot, :availability => @availability %>
+            </div>
+          </div>
         </ul>
+
       </div>
     </div>
 <% end %>
