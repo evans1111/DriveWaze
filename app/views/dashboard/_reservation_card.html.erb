@@ -5,10 +5,15 @@
         <p><%= booking.availability.spot.street %></p>
         <p><%= booking.availability.spot.description %></p>
         <p>Parking Valid Until: </p><%= booking.availability.from.strftime("%I:%M %p") %>
+        </p><%= booking.availability.from.strftime("%m/%d/%Y") %></p>
     </div>
     <div class="card-action">
       <%= link_to 'Get Directions' %>
-      <p>You have <%= booking.time_left %> left on your parking reservation!</p>
+      <% if booking.time_remaining %>
+        <p>You have <%= booking.time_remaining %> left on your parking reservation!</p>
+      <% else %>
+        <p>Your parking reservation has expired!</p>
+      <% end %>
       <%= link_to 'Cancel Reservation',  booking,  method: :delete, data: { confirm: 'Are you sure you want to cancel?' } %>
     </div>
   <% end %>
