@@ -4,6 +4,7 @@ class DashboardController < ApplicationController
   def index
     @dashboard = current_user
     @spots = current_user.spots
+    @bookings = current_user.bookings
     @availabilities = Availability.all
 
 
@@ -24,11 +25,13 @@ class DashboardController < ApplicationController
         #translates to latitude/long
         results = gmaps.geocode(query)
         #parse data
-        results[0][:geometry][:location].values
+
+        # Requires real addresses for host locations
+        # results[0][:geometry][:location].values
         end
       end
 
-
+      @spot = Spot.new
 
   end
 
@@ -56,6 +59,7 @@ class DashboardController < ApplicationController
   end
 
 
-private
+  private
+
 
 end

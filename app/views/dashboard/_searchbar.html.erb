@@ -1,0 +1,7 @@
+<div class="dash-search-bar">
+  <h5>Search Parking Near You</h5>
+  <%= form_tag(spots_path, method: :get) do %>
+  <%= text_field_tag :zip, nil, placeholder: "Search Zip Codes", :maxlength => 5 %>
+  <%= submit_tag 'Search', class: "btn #42a5f5 blue lighten-1", id: "search-button" %>
+  <% end %>
+</div>

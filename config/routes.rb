@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   post 'spots/:id/edit' => 'spots#edit'
   delete 'spot/:id' => 'spots#destroy'
   devise_for :users
-  resources :charges
+
   get 'dashboard/index' => 'dashboard#index'
   post 'notifications/notify_host'
   root 'home#index'

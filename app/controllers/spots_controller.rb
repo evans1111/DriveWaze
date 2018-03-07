@@ -39,21 +39,32 @@ class SpotsController < ApplicationController
 
 
 
-
   def new
     # @spot = current_user.spots.build
     @spot = Spot.new
+    render partial: 'form', locals: { spot: @spot }, layout: false
   end
 
   def create
-    @spot = current_user.spots.build(spot_params)
-    if @spot.save
-      # redirect_to listing_spot_path(@spot), notice: "Saved..."
-      redirect_to dashboard_index_path , notice: "Your parking spot was created!"
-      return
-      # else
-      #   render :new, notice: "Something went wrong..."
-    end
+     @spot = current_user.spots.build(spot_params)
+     respond_to do |format|
+       if @spot.save
+         format.html { redirect_to dashboard_index_path }
+         format.json { render :show, status: :created, location: @spot }
+       else
+         format.html { render :new }
+         format.json { render json: @spot.errors, status: :unprocessable_entity }
+       end
+     end
+
+    # Non Ajax Code
+    # if @spot.save
+    #   # redirect_to listing_spot_path(@spot), notice: "Saved..."
+    #   redirect_to dashboard_index_path , notice: "Your parking spot was created!"
+    #   return
+    #   # else
+    #   #   render :new, notice: "Something went wrong..."
+    # end
   end
 
   def listing
@@ -100,6 +111,10 @@ class SpotsController < ApplicationController
   end
 
   private
+
+  def new_spot
+    @spot = current_user.spots.build(spot_params)
+  end
 
   def set_spot
     @spot = Spot.find(params[:id])

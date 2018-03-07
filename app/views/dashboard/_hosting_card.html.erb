@@ -1,0 +1,30 @@
+<% @spots.each_with_index do |spot, i| %>
+  <% if spot.user_id == current_user.id %>
+    <div class="card">
+      <div class="card-content">
+        <h5><%= spot.street %></h5>
+        <p><%= spot.city %></p>
+        <p><%= spot.zip %></p>
+        <p>$<%= spot.price %>.00/hr</p>
+        <p><%= spot.description %></p>
+        <p>Availabilities:</p>
+        <% spot.availabilities.each do |x| %>
+          <p><%= x.to.strftime("%I:%M %p") %> - <%= x.from.strftime("%I:%M %p") %></p>
+        <% end %>
+      </div>
+  <% end  %>
+      <div class="card-action" id="hosting-spots-card">
+        <ul id="hosted-spot-buttons">
+          <p><%= link_to new_spot_availability_path(spot), class:"", id:"dashboard-hosting-button" do %>
+          Availability<i class="small material-icons">timer</i>
+          <% end %></p>
+          <p><%= link_to edit_spot_path(spot), :method => :update, class: "", id:"dashboard-hosting-button" do %>
+            Edit Spot<i class="small material-icons">edit</i>
+          <% end %></p>
+          <p><%= link_to spot_path(spot), :method => :delete, class: "", id:"dashboard-delete-button" do %>
+            Remove<i class="small material-icons">delete</i>
+          <% end %></p>
+        </ul>
+      </div>
+    </div>
+<% end %>

@@ -42,7 +42,7 @@ gem 'kaminari'
 gem 'search_object'
 gem "combined_time_select", "~> 2.0.0"
 gem 'twilio-ruby', '~> 5.7.0'
-
+gem 'momentjs-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -1,1 +1,18 @@
-<h1>Bookings</h1>
+<div class="container">
+  <h3>Your Reserved Parking Spots</h3>
+
+  <% current_user.bookings.each do |booking| %>
+    <div class="card">
+      <div class="card-content">
+        <h5>Current Parking</h5>
+          <p><%= booking.availability.spot.street %></p>
+          <p><%= booking.availability.spot.description %></p>
+          <p>Parking Valid Until: </p><%= booking.availability.from.strftime("%I:%M %p") %>
+      </div>
+      <div class="card-action">
+        <%= link_to 'Get Directions' %>
+        <p>You have <%= booking.time_left %> left on your parking reservation!</p>
+      </div>
+      <% end %>
+    </div>
+</div>

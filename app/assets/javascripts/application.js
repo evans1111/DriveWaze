@@ -18,6 +18,9 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+//= require moment
+var map, map2
+      function initMap() {
 
 
 //Map for Feed page
@@ -55,23 +58,8 @@ var map, map2, map3
             map: map2
           })
         }
-      };
-
-//Directions Map
-
-
-
-
-
-
-
-
-
-
+};
    // map.addListener('turbolinks:load', initMap())
-
-
-// Initialize Map
 
 
 //To place multiple Markers, loop through feed results. Since data is on same domain
@@ -83,6 +71,16 @@ $(document).on('turbolinks:load', function() {
    $(".button-collapse").sideNav(
  );
    console.log("javaScript is working!");
+   $('.modal').modal();
+
+   $('.carousel.carousel-slider').carousel({fullWidth: true});
+   $('.carousel').carousel('next', 1);
+   autoplay()
+   function autoplay() {
+    $('.carousel').carousel('next');
+    setTimeout(autoplay, 6500);
+}
+   //$('#modal1').modal('open');
 });
 
 // scrolling effect
