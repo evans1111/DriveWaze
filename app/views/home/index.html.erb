@@ -48,6 +48,7 @@
 
     <h3 id="testimonial-headline">Hear what others are saying</h3>
 
+    <!-- Testimonials for Desktop -->
     <div class="hide-on-med-and-down">
       <div class="carousel carousel-slider center" id="review-slider" data-indicators="true">
 
@@ -63,6 +64,21 @@
             <p class="testimonial-name">-Alex Evans</p>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- Testimonials for Tablet and mobile -->
+    <div class="hide-on-large-only">
+      <div class="testimonials">
+        <%= image_tag 'wyncode_photo.jpg', style:"height: 125px; width: 125px;", class:"testimonial-photo" %><br>
+        <%= image_tag "5star_review.png", style:"height: 50px", class:"testimonial-stars" %>
+        <p class="testimonial-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et."</p>
+        <p class="testimonial-name">Alex Evans</p>
+
+        <%= image_tag 'MeltzerShoshana.jpg', style:"height: 125px; width: 125px;", class:"testimonial-photo" %><br>
+        <%= image_tag "5star_review.png", style:"height: 50px", class:"testimonial-stars" %>
+        <p class="testimonial-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et."</p>
+        <p class="testimonial-name">Shoshana Meltzer</p>
       </div>
     </div>
   </div>

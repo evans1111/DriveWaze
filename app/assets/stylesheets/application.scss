@@ -443,3 +443,10 @@ input#zip {
     text-align: left;
   }
 }
+
+// Testimonial section home page (tablet & mobile)
+@media only screen and (max-width: 893px) {
+  .section3 {
+    height: 1000px;
+  }
+}
