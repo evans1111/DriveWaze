@@ -6,6 +6,7 @@ class DashboardController < ApplicationController
     @spots = current_user.spots
     @bookings = current_user.bookings
     @availabilities = Availability.all
+    @availability = Availability.new
 
 
     GoogleMapsService.configure do |config|

@@ -1,0 +1,21 @@
+<div class="container">
+  <h5>When is your parking spot available?</h5>
+
+  <%= form_for [spot, availability], remote: true do |f| %>
+    <div class="field">
+      <p>
+        <%= f.label 'Start Time' %>
+        <%= f.time_field :to, class: 'timepicker' %>
+      </p>
+    </div>
+
+    <div class="field">
+      <p>
+        <%= f.label 'End Time' %>
+        <%= f.time_field :from, class: 'timepicker' %>
+      </p>
+    </div>
+
+    <%= f.submit "Set Times", class:"waves-effect btn #ef6c00 orange darken-3" %>
+  <% end  %>
+</div>

@@ -6,6 +6,8 @@ class AvailabilitiesController < ApplicationController
   def new
     @availability = Availability.new
     @spot = Spot.find(params[:spot_id])
+
+    render partial: 'form', locals: { spot: @spot }, layout: false
   end
 
   def create
