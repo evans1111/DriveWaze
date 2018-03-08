@@ -4,7 +4,7 @@
   <div class="card small">
     <div class="card-image">
       <div id="refer-a-friend">
-        <%= image_tag("stripe.png") %>
+        <%=link_to image_tag("stripe.png"), user_stripe_connect_omniauth_authorize_path %>
       </div>
     </div>
     <!-- Stripe connect card Content -->

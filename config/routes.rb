@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   post 'spots/:id/edit' => 'spots#edit'
   delete 'spot/:id' => 'spots#destroy'
-  devise_for :users
-
+  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
+  resources :charges  
   get 'dashboard/index' => 'dashboard#index'
   post 'notifications/notify_host'
   root 'home#index'

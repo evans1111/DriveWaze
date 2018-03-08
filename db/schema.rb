@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180306005353) do
+ActiveRecord::Schema.define(version: 20180307215819) do
 
   create_table "availabilities", force: :cascade do |t|
     t.integer "times"
@@ -66,6 +66,10 @@ ActiveRecord::Schema.define(version: 20180306005353) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.string "phone_number"
+    t.string "publishable_key"
+    t.string "provider"
+    t.string "uid"
+    t.string "access_code"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

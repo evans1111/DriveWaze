@@ -22,13 +22,37 @@
             <p class="spot-info">City: <%= spot.city %></p>
             <p class="spot-info">Zip: <%= spot.zip %></p>
             <p class="spot-info">$<%= spot.price %>.00/hr</p>
+             <!-- link_to "Pay", new_charge_path(spot), class: "waves-effect btn #757575 grey darken-1" -->
+
+             <%= form_tag charges_path do %>
+               <article>
+                 <% if flash[:error].present? %>
+                   <div id="error_explanation">
+                     <p><%= flash[:error] %></p>
+                   </div>
+                 <% end %>
+                 <%= label :time, "How long do you plan to park?(hours)" %>
+                 <%= text_field_tag :time %>
+
+                 <label class="amount">
+                 </label>
+               </article>
+               <%= hidden_field_tag :spot_id, spot.id %>
+               <%= hidden_field_tag :price, spot.price*100 %>               
+               <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                       data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                       data-description="Purchase Reservation"
+                       data-amount= "<%=spot.price*100%>"
+                       data-id= "<%=spot.id%>"
+                       data-locale="auto"></script>
+             <% end %>
           </div>
           <div class="card-action" id="available-times">
             <% spot.availabilities.each do |avail| %>
               <% if avail.avialable %>
                 <div class="time-select">
                   <h6><%= avail.normal_time%></h6>
-                  <%= link_to 'Book', bookings_path(availability_id: avail.id), class: "waves-effect btn #757575 grey darken-1", method: :post%>                  
+                  <%= link_to 'Book', bookings_path(availability_id: avail.id), class: "waves-effect btn #757575 grey darken-1", method: :post%>
                 </div>
               <% end %>
             <% end %>

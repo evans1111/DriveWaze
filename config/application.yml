@@ -13,3 +13,6 @@ EMBED_API: 'AIzaSyCot-cF6mA-9mkOiOBaFsEwKRcTPJxrZqI'
 MAPS: 'AIzaSyCaOPw-q9E9srNzO8IEiAxiKPLIVnrX0nQ'
 Twilio_sid: AC0326b107b2f72cb03da6fca712c3c5b5
 twil_token: 2b77c01d1b2fbd4040cccf903abc4c5c
+stripe_pub: pk_test_L8EUExcGHGFUfidRubx0ef40
+stripe_secret: sk_test_kcSV0wtWZ40eSnmIlbRQEr2O
+stripe_connect: ca_CS416F1yHiYHmW9PqmCGo1Gue3Fg6lD9
