@@ -20,13 +20,28 @@ nav {
   height: 12vh;
   box-shadow: none;
 }
+// nav {
+//   background-color: #fff;
+//   height: 6rem;
+//   box-shadow: none;
+//   border-bottom: 1px solid #ccc;
+// }
 
 .nav-wrapper {
     transition: 0.2s all linear;
+    padding: 0.5rem 2rem;
 }
 
 .nav-wrapper.alt-color {
     background-color: #000;
+}
+.nav-search-bar {
+  width: 45%;
+}
+
+nav ul a {
+  color: #fff;
+  font-size: 16px;
 }
 body > nav > div > div > ul.right.hide-on-med-and-down > li > a {
   font-size: 20px;
@@ -202,8 +217,8 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
   background-color: #fff;
 }
 .dash-search-bar {
-  margin: 1rem 1rem;
-  width: 70%;
+  margin: 1rem;
+  width: 100%;
   text-align: center;
 }
 
@@ -217,7 +232,7 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
 }
 .dashboard-welcome-content {
   padding: 1rem;
-  width:  50%;
+  width:  100%;
   display: inline-block;
 }
 #dashboard-delete-button {
@@ -249,10 +264,12 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
   height: 100vh;
   padding: 0;
   min-width: 270px;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
 
-  -webkit-box-shadow: 10px 10px 29px -8px rgba(119,119,119,1);
-  -moz-box-shadow: 10px 10px 29px -8px rgba(119,119,119,1);
-  box-shadow: 10px 10px 29px -8px rgba(119,119,119,1);
+  // -webkit-box-shadow: 10px 10px 29px -8px rgba(119,119,119,1);
+  // -moz-box-shadow: 10px 10px 29px -8px rgba(119,119,119,1);
+  // box-shadow: 10px 10px 29px -8px rgba(119,119,119,1);
 }
 #sidebar-container {
   text-align: left;
@@ -260,9 +277,12 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
 #become-host-button {
   height: 3rem;
   width: 100%;
-  margin: 1rem 0rem;
+  margin: 1rem 0rem 1rem 0rem;
   padding-top: 0.3rem;
   min-width: 200px;
+}
+.dash-sublinks-container {
+  margin-top: 5vh;
 }
 .dash-sublinks {
   list-style: none;
@@ -270,13 +290,14 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
   color: #222;
   font-weight: 800;
   line-height: 3rem;
+  padding-left: 1rem;
 }
 body > div.dashbackground > div.row > div > div > div.col.s9 {
   width: 70%;
 }
-#dash-container {
-  width: 90%;
-}
+// #dash-container {
+//   width: 90%;
+// }
 .refer-a-friend {
   padding: 0.5rem;
 }
@@ -364,6 +385,7 @@ input#zip {
 }
 #mapDash {
   height: 40vh;
+  margin: 0 auto;
   width: 100%;
   margin-top: 1rem;
   border: 1px solid #ccc;

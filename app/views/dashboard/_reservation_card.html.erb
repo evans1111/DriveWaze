@@ -12,7 +12,7 @@
         Get Directions<i class="small material-icons">directions</i>
       <% end %></p>
       <% if booking.time_remaining %>
-        <p>You have <%= booking.time_remaining %> left on your parking reservation!</p>
+        <i class="small material-icons">av_timer</i><p>You have <%= booking.time_remaining %> left on your parking reservation!</p>
       <% else %>
         <i class="small material-icons">av_timer</i><p>Your parking reservation has expired!</p>
       <% end %>
