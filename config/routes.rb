@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   post 'spots/:id/edit' => 'spots#edit'
   delete 'spot/:id' => 'spots#destroy'
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
-  resources :charges  
+  resources :charges
   get 'dashboard/index' => 'dashboard#index'
   post 'notifications/notify_host'
   root 'home#index'
@@ -23,5 +23,5 @@ Rails.application.routes.draw do
       get 'photo_upload'
     end
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'book_it' => "bookings#create"  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

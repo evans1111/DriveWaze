@@ -2,15 +2,21 @@
   <div class="card">
     <div class="card-content">
       <h5>Current Parking</h5>
-        <p><%= booking.availability.spot.street %></p>
-        <p><%= booking.availability.spot.description %></p>
+      <% if booking.availability.spot.nil? %>
+      <p>You dont have any bookings</p>
+      <% else %>
+        <p><%= booking.availability.spot.street%></p>
+        <p><%= booking.availability.spot.description%></p>
           <p>Parking Valid Until: </p><%= booking.availability.from.strftime("%I:%M %p") %>
-          </p><%= booking.availability.from.strftime("%m/%d/%Y") %></p>
+        </p><%= booking.availability.from.strftime("%m/%d/%Y")%></p>
+        <% end  %>
     </div>
     <div class="card-action">
+      <%if booking.availability.spot != nil %>
       <p><%= link_to dashboard_path(booking.availability.spot), class: "", id:"dashboard-hosting-button" do %>
         Get Directions<i class="small material-icons">directions</i>
       <% end %></p>
+      <% end %>
       <% if booking.time_remaining %>
         <i class="small material-icons">av_timer</i><p>You have <%= booking.time_remaining %> left on your parking reservation!</p>
       <% else %>
