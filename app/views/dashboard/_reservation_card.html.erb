@@ -25,6 +25,7 @@
       <p><%= link_to booking,  method: :delete, id:"dashboard-hosting-button", data: { confirm: 'Are you sure you want to cancel?' } do %>
         Cancel Parking<i class="small material-icons">cancel</i>
       <% end %></p>
+      <p> <%= link_to "On your way?", notifications_notify_host_path %> </p>
     </div>
   <% end %>
   </div>
