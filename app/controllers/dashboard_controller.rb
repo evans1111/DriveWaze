@@ -7,10 +7,9 @@ class DashboardController < ApplicationController
     @bookings = current_user.bookings
     @availabilities = Availability.all
     @availability = Availability.new
-
-
+    @customer = current_user.id
     GoogleMapsService.configure do |config|
-      config.key = 'AIzaSyCaOPw-q9E9srNzO8IEiAxiKPLIVnrX0nQ'
+      config.key = ENV['MAPS']
       config.retry_timeout = 20
       config.queries_per_second = 10
       gmaps = GoogleMapsService::Client.new
@@ -28,8 +27,9 @@ class DashboardController < ApplicationController
         #parse data
 
         # Requires real addresses for host locations
-        # results[0][:geometry][:location].values
+        results[0][:geometry][:location].values
         end
+
       end
 
       @spot = Spot.new
@@ -40,7 +40,7 @@ class DashboardController < ApplicationController
     @spot = Spot.find(params[:id])
     gon.current_street = @spot.street
     GoogleMapsService.configure do |config|
-      config.key = 'AIzaSyCaOPw-q9E9srNzO8IEiAxiKPLIVnrX0nQ'
+      config.key = ENV['MAPS']
       config.retry_timeout = 20
       config.queries_per_second = 10
     gmaps = GoogleMapsService::Client.new

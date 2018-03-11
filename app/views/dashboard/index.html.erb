@@ -1,5 +1,5 @@
 <div class="dashbackground">
-
+<%= @customer %>
   <!-- Modal for creating new hosting spot -->
   <div id="modal1" class="modal">
     <div class="modal-content">
@@ -64,7 +64,9 @@
           </div>
 
         </div>
-
+        <script type="text/javascript">
+          initialize()
+        </script>
       </div>
 
     </div>
@@ -108,6 +110,7 @@
           <%= render 'right_sidebar' %>
         </div>
         <script type="text/javascript">
+
           function mobileMap(){
             map3 = document.getElementById('mapDashMobile');
             var myOptions = {
@@ -115,22 +118,20 @@
               center: new google.maps.LatLng(25.7617, -80.1918)
             }
             var mapSmall = new google.maps.Map(map3, myOptions);
+
             for (var i = 0; i < gon.latlng.length; i++) {
               // var latlng = new google.maps.LatLng(gon.latlng[i][0], gon.latlng[i][1])
-              var latlng = {lat: gon.latlng[i][0], lng: gon.latlng[i][1]}
+              var latlng = {lat: gon.latlng[i][0],lng: gon.latlng[i][1]}
               var park = new google.maps.Marker({
                 position: latlng,
-                map: this //mapSmall
-              })
+                map: mapSmall
+              });
+              console.log(gon.results)
             }
-          }
-          console.log(gon.latlng)
+          };
+
           mobileMap();
         </script>
 
 
       </div>
-
-    <script type="text/javascript">
-      initialize()
-    </script>
