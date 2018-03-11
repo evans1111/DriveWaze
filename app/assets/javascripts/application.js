@@ -17,6 +17,8 @@
 //= require_tree .
 //= require moment
 var map, map2
+
+
       function initMap() {
       for (var i = 0; i < gon.latlng.length; i++) {
        var test = {lat: gon.latlng[i][0], lng: gon.latlng[i][1]};
@@ -29,6 +31,7 @@ var map, map2
          map: map
        });
      }
+
    };
    function initialize() {
         var myOptions = {
@@ -43,7 +46,10 @@ var map, map2
             map: map2
           })
         }
+
 };
+
+
    // map.addListener('turbolinks:load', initMap())
 //To place multiple Markers, loop through feed results. Since data is on same domain
 //use Google Maps data layer ex: map.data.loadGeoJson() method

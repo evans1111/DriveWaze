@@ -72,14 +72,14 @@
 
       <!-- MOBILE VIEW (No Columns) -->
       <div class="hide-on-med-and-up">
+
         <div class="container">
 
 
         <%= render 'searchbar' %>
-        <div id="mapDash"></div>
+        <div id="mapDashMobile"></div>
         <a href="/spots", class="waves-effect btn #ef6c00 orange darken-3", id="become-host-button"><i class="small material-icons">directions_car</i>Park Now</a>
         <a class="waves-effect btn #42a5f5 blue lighten-1 modal-trigger" href="#modal1", id="become-host-button"><i class="small material-icons">add_location</i>Become A Host</a>
-
         <!-- Reserved Spots Column -->
         <%if current_user.bookings.empty? %>
           <div class="col s6" id="reserved-spots">
@@ -107,11 +107,30 @@
 
           <%= render 'right_sidebar' %>
         </div>
-
+        <script type="text/javascript">
+          function mobileMap(){
+            map3 = document.getElementById('mapDashMobile');
+            var myOptions = {
+              zoom: 12,
+              center: new google.maps.LatLng(25.7617, -80.1918)
+            }
+            var mapSmall = new google.maps.Map(map3, myOptions);
+            for (var i = 0; i < gon.latlng.length; i++) {
+              // var latlng = new google.maps.LatLng(gon.latlng[i][0], gon.latlng[i][1])
+              var latlng = {lat: gon.latlng[i][0], lng: gon.latlng[i][1]}
+              var park = new google.maps.Marker({
+                position: latlng,
+                map: this //mapSmall
+              })
+            }
+          }
+          console.log(gon.latlng)
+          mobileMap();
+        </script>
 
 
       </div>
-    </div>
+
     <script type="text/javascript">
       initialize()
     </script>
