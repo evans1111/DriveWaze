@@ -28,7 +28,7 @@
               <% if avail.avialable %>
                 <div class="time-select">
                   <h6><%= avail.normal_time%></h6>
-                  <%= link_to 'Book', bookings_path(availability_id: avail.id), class: "waves-effect btn #757575 grey darken-1", method: :post%>                  
+                  <%= link_to 'Book', bookings_path(availability_id: avail.id), class: "waves-effect btn #757575 grey darken-1", method: :post%>
                 </div>
               <% end %>
             <% end %>
@@ -39,8 +39,8 @@
     <% end  %>
 
 </div>
+<%= paginate @spots %>
+
 <script type="text/javascript">
   initMap();
 </script>
-
-<%= paginate @spots %>
