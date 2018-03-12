@@ -49,6 +49,31 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
   margin-top: 1.8vh;
 }
 
+/* Sign Up Page */
+#sign-up-page {
+  height: 85vh;
+}
+.form-container {
+  padding: 1rem 1rem;
+  height: inherit;
+  width: 100%;
+  margin-top: 1rem;
+}
+#new_user > div.actions.waves-effect.btn.\23 ef6c00.orange.darken-3 {
+  width: 100%;
+}
+#parking-text {
+  float: right;
+}
+#user_name:active, #user_name:focus, #user_phone_number:active, #user_phone_number:focus, #user_email:active,
+#user_email:focus, #user_password:active, #user_password:focus, #user_password_confirmation:active, #user_password_confirmation:focus{
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-bottom: 1px solid #FE6300;
+}
+
+/* End Sign Up Page */
+
 /* Home Page First Section */
 .background-image {
   background-image: url('drivewaze_background2.png');
