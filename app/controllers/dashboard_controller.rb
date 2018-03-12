@@ -7,7 +7,7 @@ class DashboardController < ApplicationController
     @bookings = current_user.bookings
     @availabilities = Availability.all
     @availability = Availability.new
-    
+
     GoogleMapsService.configure do |config|
       config.key = ENV['MAPS']
       config.retry_timeout = 20

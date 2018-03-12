@@ -16,12 +16,12 @@
         <%= render 'left_sidebar' %>
 
         <!-- Page content  -->
-        <div class="col s9">
+        <div class="col s6">
 
           <!-- Dashboard main content -->
           <div class="" id="dash-container">
             <div class="row">
-              <div class="col s9">
+              <div class="col s12">
                 <!-- Dashboard Search Bar -->
                 <%= render 'searchbar' %>
 
@@ -44,7 +44,7 @@
                     </div>
                   </div>
                 <% end %>
-              </div>
+
 
 
                 <!-- Hosted Spots Column -->
@@ -58,10 +58,15 @@
                   <%= render 'hosting_card' %>
                   <% end %>
                 </div>
+                </div>
+
               </div>
-              <%= render 'right_sidebar' %>
+
             </div>
+
           </div>
+          <%= render 'right_sidebar' %>
+
 
         </div>
         <script type="text/javascript">
@@ -70,6 +75,7 @@
       </div>
 
     </div>
+
   </div>
 
       <!-- MOBILE VIEW (No Columns) -->
