@@ -1,36 +1,34 @@
-<% @spots.each_with_index do |spot, i| %>
-  <% if spot.user_id == current_user.id %>
-    <div class="card">
-      <div class="card-content">
-        <h5><%= spot.street %></h5>
-        <p><%= spot.city %></p>
-        <p><%= spot.zip %></p>
-        <p>$<%= spot.price %>.00/hr</p>
-        <p><%= spot.description %></p>
-        <p>Availabilities:</p>
-        <% spot.availabilities.each do |x| %>
-          <p><%= x.to.strftime("%I:%M %p") %> - <%= x.from.strftime("%I:%M %p") %></p>
-        <% end %>
-      </div>
-  <% end  %>
-      <div class="card-action" id="hosting-spots-card">
-        <ul id="hosted-spot-buttons">
-          <a class="modal-trigger" href="#modal2", id="dashboard-hosting-button"><i class="small material-icons">timer</i>Availability</a>
-
-          <p><%= link_to edit_spot_path(spot), :method => :update, class: "", id:"dashboard-hosting-button" do %>
-            Edit Spot<i class="small material-icons">edit</i>
-          <% end %></p>
-          <p><%= link_to spot_path(spot), :method => :delete, class: "", id:"dashboard-delete-button" do %>
-            Remove<i class="small material-icons">delete</i>
-          <% end %></p>          
-          <!-- Modal for updating spot availability -->
-          <div id="modal2" class="modal">
-            <div class="modal-content">
-              <%= render 'availabilities/form', :spot => spot, :availability => @availability %>
-            </div>
-          </div>
-        </ul>
-
-      </div>
+<% current_user.spots.each_with_index do |spot, i| %>
+  <div class="card">
+    <div class="card-content">
+      <h5><%= spot.street %></h5>
+      <p><%= spot.city %></p>
+      <p><%= spot.zip %></p>
+      <p>$<%= spot.price %>.00/hr</p>
+      <p><%= spot.description %></p>
+      <p>Availabilities:</p>
+      <% spot.availabilities.each do |x| %>
+        <p><%= x.to.strftime("%I:%M %p") %> - <%= x.from.strftime("%I:%M %p") %></p>
+      <% end %>
     </div>
+    <div class="card-action" id="hosting-spots-card">
+      <ul id="hosted-spot-buttons">
+        <a class="modal-trigger" href="#modal_<%= dom_id(spot) %>", id="dashboard-hosting-button"><i class="small material-icons">timer</i>Availability</a>
+
+        <p><%= link_to edit_spot_path(spot), :method => :update, class: "", id:"dashboard-hosting-button" do %>
+          Edit Spot<i class="small material-icons">edit</i>
+        <% end %></p>
+        <p><%= link_to spot_path(spot), :method => :delete, class: "", id:"dashboard-delete-button" do %>
+          Remove<i class="small material-icons">delete</i>
+        <% end %></p>
+        <!-- Modal for updating spot availability -->
+        <div id="modal_<%= dom_id(spot) %>" class="modal">
+          <div class="modal-content">
+            <%= render 'availabilities/form', :spot => spot, :availability => @availability %>
+          </div>
+        </div>
+      </ul>
+
+    </div>
+  </div>
 <% end %>
